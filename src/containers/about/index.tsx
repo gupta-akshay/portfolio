@@ -10,7 +10,7 @@ import {
   faInstagram,
   faFacebook
 } from '@fortawesome/free-brands-svg-icons'
-import Progress from 'components/Progress';
+import Progress from 'components/progress';
 import ThemeContext from '../../context';
 import { AboutProps } from '../../types';
 import './styles.scss';
