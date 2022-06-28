@@ -1,4 +1,8 @@
 import React from 'react';
+
+export interface ContextInterface {
+  height: number | string;
+}
 export interface SiteMetaData {
   site: Site;
 }
@@ -46,5 +50,27 @@ export interface Node {
 }
 
 export interface AboutProps {
+  id: string;
+}
+
+export interface BaffleTextProps {
+  text: string;
+  revealDuration: number;
+  revealDelay: number;
+  inViewport: boolean;
+  callMethodTime: number;
+  parentMethod(): void;
+}
+
+export interface AnimationContainerProps {
+  children: React.ReactNode;
+  id: string | undefined;
+  delay: number;
+  animation: string;
+  height: string | number;
+  inViewport: boolean;
+}
+
+export interface ContactProps {
   id: string;
 }
