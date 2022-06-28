@@ -13,14 +13,21 @@ const sections = [
   // 'contact'
 ]
 
+interface StateType {
+  height: string | number
+  mobile: boolean
+  scrolllock: boolean
+  width: number
+}
+
 const Layout = ({ children }: ReactChildren) => {
   const [sectionId, setSectionId] = useState(0);
   const [scrolling, setScrolling] = useState(false);
-  const [layoutState, setLayoutState] = useState({
-    height: window.innerWidth < 992 ? 'auto' : window.innerHeight,
-    mobile: window.innerWidth < 992 ? true : false,
-    scrolllock: window.innerWidth < 1025 ? false : true,
-    width: window.innerWidth,
+  const [layoutState, setLayoutState] = useState<StateType>({
+    height: 0,
+    mobile: false,
+    scrolllock: false,
+    width: 0,
   });
 
   const updateDimensions = () => {
@@ -44,6 +51,12 @@ const Layout = ({ children }: ReactChildren) => {
   }
 
   useEffect(() => {
+    setLayoutState({
+      height: window.innerWidth < 992 ? 'auto' : window.innerHeight,
+      mobile: window.innerWidth < 992 ? true : false,
+      scrolllock: window.innerWidth < 1025 ? false : true,
+      width: window.innerWidth,
+    })
     window.addEventListener('resize', updateDimensions);
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
