@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   margin: 0;
@@ -23,4 +24,87 @@ p {
 
 img {
   max-width: 100%;
-} 
+}
+
+.line-text h4 {
+  color: #fff;
+  font-family: Poppins;
+  font-size: 22px;
+  position: relative;
+  left: 110px;
+  flex-basis: inherit;
+
+  &:after {
+    content: "";
+    height: 3px;
+    width: 90px;
+    display: block;
+    background-color: #eb83f8;
+    position: absolute;
+    top: 0;
+    left: -108px;
+    top: 11px;
+  }
+
+  @media (max-width:500px) {
+    font-size: 14px;
+
+    &:after {
+      top: 7px;
+    }
+  }
+}
+
+.line-text h6 {
+  color: #fff;
+  font-family: Poppins;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: normal;
+  position: relative;
+  flex-basis: inherit;
+
+  @media (max-width:500px) {
+    font-size: 10px;
+
+    &:after {
+      top: 7px;
+    }
+  }
+}
+
+.button {
+  margin-top: 20px;
+
+  button {
+    border: 2px solid;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-family: Poppins;
+    font-weight: 700;
+    transition: .5s;
+  }
+
+  &.white {
+    button {
+      border-color: #fff;
+      background-color: #fff;
+
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.separator {
+  height: 3px;
+  width: 90px;
+  display: block;
+  background-color: #eb83f8;
+}
+
+.row {
+  overflow-x: hidden;
+}
