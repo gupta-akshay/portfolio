@@ -25,22 +25,22 @@ const config: GatsbyConfig = {
         name: 'portfolio',
       },
     },
-    // {
-    //   resolve: 'gatsby-transformer-remark',
-    //   options: {
-    //     plugins: [
-    //       {
-    //         resolve: 'gatsby-remark-images',
-    //       },
-    //       {
-    //         resolve: 'gatsby-remark-responsive-iframe',
-    //       },
-    //       'gatsby-remark-prismjs',
-    //       'gatsby-remark-copy-linked-files',
-    //       'gatsby-remark-smartypants',
-    //     ],
-    //   },
-    // },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+          },
+          {
+            resolve: 'gatsby-remark-responsive-iframe',
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

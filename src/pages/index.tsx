@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Spinner from 'components/spinner';
+import Layout from 'components/layout';
 
 import { SiteMetaData } from '../types';
 
@@ -18,6 +19,9 @@ const IndexPage = ({ data }: propsType) => {
         <title>{site.meta.title}</title>
         <meta name="description" content={site.meta.description} />
       </Helmet>
+      <Layout>
+        <div id="home">This is a test</div>
+      </Layout>
       <Spinner duration={1000} />
     </div>
   )

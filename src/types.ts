@@ -1,3 +1,4 @@
+import React from 'react';
 export interface SiteMetaData {
   site: Site;
 }
@@ -7,4 +8,8 @@ export interface Site {
 export interface Meta {
   title: string;
   description: string;
+}
+
+export interface ReactChildren {
+  children: React.ReactNode;
 }
