@@ -6,6 +6,7 @@ import Spinner from 'components/spinner';
 import Layout from 'components/layout';
 import Hero from 'containers/hero';
 import About from 'containers/about';
+import Contact from 'containers/contact';
 
 import { SiteMetaData } from '../types';
 
@@ -24,6 +25,7 @@ const IndexPage = ({ data }: propsType) => {
       <Layout>
         <Hero id="home" />
         <About id="about" />
+        <Contact id="contact" />
       </Layout>
       <Spinner duration={1000} />
     </div>

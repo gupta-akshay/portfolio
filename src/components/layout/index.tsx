@@ -10,7 +10,7 @@ let scrollToElement = require('scroll-to-element')
 const sections = [
   'home',
   'about',
-  // 'contact'
+  'contact'
 ]
 
 interface StateType {
