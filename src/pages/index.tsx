@@ -1,6 +1,9 @@
 import React from "react"
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+
+import Spinner from 'components/spinner';
+
 import { SiteMetaData } from '../types';
 
 interface propsType {
@@ -15,6 +18,7 @@ const IndexPage = ({ data }: propsType) => {
         <title>{site.meta.title}</title>
         <meta name="description" content={site.meta.description} />
       </Helmet>
+      <Spinner duration={1000} />
     </div>
   )
 }

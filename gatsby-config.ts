@@ -25,9 +25,6 @@ const config: GatsbyConfig = {
         name: 'portfolio',
       },
     },
-    {
-      resolve: `gatsby-transformer-sharp`
-    },
     // {
     //   resolve: 'gatsby-transformer-remark',
     //   options: {
@@ -51,8 +48,11 @@ const config: GatsbyConfig = {
         display: 'swap',
       },
     },
-    "gatsby-plugin-sass",
-    "gatsby-plugin-react-helmet"
+    'gatsby-plugin-offline',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
   ]
 };
 
