@@ -16,6 +16,16 @@ body {
   overflow-x: hidden;
 }
 
+.row {
+  margin-right: 0;
+  margin-left: 0;
+  overflow-x: hidden;
+
+  @media (min-width: 992px) {
+    padding: 0 10px;
+  }
+}
+
 p {
   font-size: 16px;
   line-height: 1.5;
@@ -107,4 +117,118 @@ img {
 
 .row {
   overflow-x: hidden;
+}
+
+.error-404 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #251170;
+  color: #fff;
+
+  h1 {
+    font-size: 50px;
+    font-weight: 900;
+  }
+
+  a {
+    color: #eb83f8;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.baffle_text {
+  display: block;
+}
+
+.hover-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 50px;
+  background: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  font-family: verdana;
+  letter-spacing: 4px;
+  border: none;
+
+  span {
+    font-size: 15px;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      transition: 1s;
+      mix-blend-mode: hue;
+    }
+
+    &:before {
+      bottom: -2px;
+      left: -2px;
+      background: #fff;
+    }
+
+    &:after {
+      bottom: -2px;
+      right: -2px;
+      background: #eb83f8;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    transition: 1s;
+    mix-blend-mode: hue;
+  }
+
+  &:before {
+    top: -2px;
+    left: -2px;
+    background: #eb83f8;
+  }
+
+  &:after {
+    top: -2px;
+    right: -2px;
+    background: #fff;
+  }
+
+  &:hover:before,
+  &:hover:after,
+  &:hover span:before,
+  &:hover span:after {
+    width: calc(180px/2);
+    height: calc(50px/2)
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.error {
+
+    &:before,
+    &:after,
+    span:before,
+    span:after {
+      background-color: #FF0000;
+    }
+  }
 }
