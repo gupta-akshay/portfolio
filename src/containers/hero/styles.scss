@@ -27,15 +27,6 @@
       justify-content: flex-end;
       padding: 0;
       overflow: hidden;
-
-      img {
-        margin-bottom: 0;
-        position: relative;
-        top: 400px;
-        @media (max-width: 500px) {
-          top: 0;
-        }
-      }
     }
 
     .content {
