@@ -2,6 +2,7 @@ import React, { useEffect, useState, WheelEvent } from 'react';
 import ScrollLock from 'react-scrolllock';
 import { ThemeProvider } from '../../context';
 import { ReactChildren } from '../../types';
+import Navigation from 'components/navigation';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'scss/main.scss';
 let scrollToElement = require('scroll-to-element')
@@ -74,6 +75,7 @@ const Layout = ({ children }: ReactChildren) => {
     <ThemeProvider
       value={{ height: layoutState.mobile ? 'auto' : layoutState.height }}
     >
+      <Navigation change={setSectionId} />
       <div onWheel={e => wheel(e)}>{children}</div>
       <ScrollLock isActive={layoutState.scrolllock} />
     </ThemeProvider>
