@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import Spinner from 'components/spinner';
 import Layout from 'components/layout';
 import Hero from 'containers/hero';
+import About from 'containers/about';
 
 import { SiteMetaData } from '../types';
 
@@ -22,6 +23,7 @@ const IndexPage = ({ data }: propsType) => {
       </Helmet>
       <Layout>
         <Hero id="home" />
+        <About id="about" />
       </Layout>
       <Spinner duration={1000} />
     </div>

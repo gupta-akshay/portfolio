@@ -44,3 +44,7 @@ export interface EdgesEntity1 {
 export interface Node {
   publicURL: string;
 }
+
+export interface AboutProps {
+  id: string;
+}
