@@ -12,9 +12,9 @@ const sections = [
   {
       name: "About"
   },
-  {
-      name: "Contact"
-  }
+  // {
+  //     name: "Contact"
+  // }
 ];
 
 interface propTypes {

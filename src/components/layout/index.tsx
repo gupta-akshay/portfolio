@@ -7,7 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'scss/main.scss';
 let scrollToElement = require('scroll-to-element')
 
-const sections = ['home', 'about', 'contact']
+const sections = [
+  'home',
+  'about',
+  // 'contact'
+]
 
 const Layout = ({ children }: ReactChildren) => {
   const [sectionId, setSectionId] = useState(0);
