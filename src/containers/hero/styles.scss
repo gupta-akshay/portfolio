@@ -30,6 +30,11 @@
 
       img {
         margin-bottom: 0;
+        position: relative;
+        top: 400px;
+        @media (max-width: 500px) {
+          top: 0;
+        }
       }
     }
 
@@ -91,6 +96,18 @@
 
       @media (max-width:991px) {
         margin: auto;
+      }
+
+      @media (max-width: 500px) {
+        .glitch {
+          font-size: 32px;
+          line-height: 32px;
+          margin-bottom: 20px;
+        }
+
+        .Typewriter span {
+          font-size: 16px;
+        }
       }
 
       .hover-button {

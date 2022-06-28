@@ -72,7 +72,6 @@ const Hero = ({ icons, mainImg, mainPdf, id }: HeroProps) => {
           <img
             src={mainImg.childImageSharp.fluid.src}
             alt="person"
-            style={{ position: 'relative', top: '400px' }}
           />
         </Col>
       </Row>
