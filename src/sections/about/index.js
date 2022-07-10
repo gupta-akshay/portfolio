@@ -32,10 +32,11 @@ class Hero extends React.Component {
               <h3>I'm a Full Stack web developer working remotely</h3>
               <div className='separator' />
               <p>
-                I am a developer with more than 4 years of professional
-                experience with a keen eye for design to deliver seamless user
-                experience and best in class products. Enthusiastic about newly
-                evolving technologies with focus on product details.
+                I am a developer currently working with PeopleGrove, having more
+                than 4 years of professional experience with a keen eye for
+                design to deliver seamless user experience and best in class
+                products. Enthusiastic about newly evolving technologies with
+                focus on product details.
               </p>
               <p>
                 In my free time I like to make electronic music and play video
