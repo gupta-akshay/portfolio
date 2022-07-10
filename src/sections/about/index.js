@@ -29,15 +29,18 @@ class Hero extends React.Component {
               <div className='line-text'>
                 <h4>About Me</h4>
               </div>
-              <h3>I'm a Full Stack web developer working from home</h3>
+              <h3>I'm a Full Stack web developer working remotely</h3>
               <div className='separator' />
               <p>
                 I am a developer with more than 4 years of professional
                 experience with a keen eye for design to deliver seamless user
                 experience and best in class products. Enthusiastic about newly
-                evolving technologies with focus on product details. In my free
-                time I like to make electronic music and play video games.
-                Sometimes, when I get a chance then I love to do DJing as well.
+                evolving technologies with focus on product details.
+              </p>
+              <p>
+                In my free time I like to make electronic music and play video
+                games. Sometimes, when I get a chance then I love to do DJing as
+                well.
               </p>
               <div className='social social_icons'>
                 <FontAwesomeIcon
