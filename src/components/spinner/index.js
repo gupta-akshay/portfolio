@@ -29,11 +29,9 @@ class Spinner extends React.Component {
   }
 
   render() {
+    const { spin } = this.state;
     return (
-      <div
-        className={`spinner-container ${this.state.spin ? 'show' : ''}`}
-        id='spinner'
-      >
+      <div className={`spinner-container ${spin ? 'show' : ''}`} id='spinner'>
         <div className='spinner'>
           <div className='ring'></div>
           <div className='ring'></div>

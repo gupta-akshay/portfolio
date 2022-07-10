@@ -25,32 +25,27 @@ class Contact extends React.Component {
   }
 
   check(val) {
-    if (this.state.error && val === '') {
+    const { error } = this.state;
+    if (error && val === '') {
       return false;
-    } else {
-      return true;
     }
+    return true;
   }
 
   submit() {
-    if (
-      this.state.name === '' ||
-      this.state.email === '' ||
-      this.state.message === ''
-    ) {
+    const { name, email, message } = this.state;
+    if (name === '' || email === '' || message === '') {
       this.setState({ error: true });
-    } else {
-      this.setState({ error: false });
+      return;
     }
+    this.setState({ error: false });
   }
 
   render() {
+    const { id } = this.props;
+    const { height } = this.context;
     return (
-      <section
-        id={`${this.props.id}`}
-        className='contact'
-        style={{ height: this.context.height }}
-      >
+      <section id={id} className='contact' style={{ height }}>
         <Row>
           <Col md={2} className='side'>
             <h2>
@@ -75,7 +70,9 @@ class Contact extends React.Component {
   }
 
   form() {
-    if (this.state.show || this.context.height === 'auto') {
+    const { show, name, email, message, error } = this.state;
+    const { height } = this.context;
+    if (show || height === 'auto') {
       return (
         <AnimationContainer delay={0} animation='fadeInUp fast'>
           <div className='form-container'>
@@ -85,9 +82,7 @@ class Contact extends React.Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    className={`name ${
-                      this.check(this.state.name) ? '' : 'error'
-                    }`}
+                    className={`name ${this.check(name) ? '' : 'error'}`}
                     placeholder='Name'
                     onChange={(e) => this.setState({ name: e.target.value })}
                   />
@@ -97,9 +92,7 @@ class Contact extends React.Component {
                 <div className='form-group'>
                   <input
                     type='text'
-                    className={`email ${
-                      this.check(this.state.email) ? '' : 'error'
-                    }`}
+                    className={`email ${this.check(email) ? '' : 'error'}`}
                     placeholder='Email'
                     onChange={(e) => this.setState({ email: e.target.value })}
                   />
@@ -118,9 +111,7 @@ class Contact extends React.Component {
               <AnimationContainer delay={200} animation='fadeInUp fast'>
                 <div className='form-group'>
                   <textarea
-                    className={`message ${
-                      this.check(this.state.message) ? '' : 'error'
-                    }`}
+                    className={`message ${this.check(message) ? '' : 'error'}`}
                     placeholder='Message'
                     onChange={(e) => this.setState({ message: e.target.value })}
                   ></textarea>
@@ -129,9 +120,7 @@ class Contact extends React.Component {
               <AnimationContainer delay={250} animation='fadeInUp fast'>
                 <div className='submit'>
                   <button
-                    className={`hover-button ${
-                      this.state.error ? 'error' : ''
-                    }`}
+                    className={`hover-button ${error ? 'error' : ''}`}
                     onClick={() => this.submit()}
                   >
                     <span>Send Message</span>
@@ -146,12 +135,14 @@ class Contact extends React.Component {
   }
 
   map() {
-    if (this.state.show || this.context.height === 'auto') {
+    const { show } = this.state;
+    const { height } = this.context;
+    if (show || height === 'auto') {
       return (
         <AnimationContainer
           delay={1000}
           animation='fadeIn fast'
-          height={this.context.height}
+          height={height}
         >
           <iframe
             title='map'

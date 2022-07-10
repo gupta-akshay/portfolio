@@ -11,13 +11,12 @@ class Hero extends React.Component {
   static contextType = ThemeContext;
 
   render() {
+    const { id } = this.props;
+    const { height } = this.context;
     const pdfPath = get(this.props, 'mainPdf.edges.0.node.publicURL');
+    const imagePath = get(this.props, 'mainImg.childImageSharp.fluid.src');
     return (
-      <section
-        id={`${this.props.id}`}
-        className='hero'
-        style={{ height: this.context.height }}
-      >
+      <section id={id} className='hero' style={{ height }}>
         <Row>
           <Col md={6} className='content'>
             <div className='content-text'>
@@ -51,10 +50,7 @@ class Hero extends React.Component {
             {this.icons()}
           </Col>
           <Col md={6} className='img'>
-            <img
-              src={this.props.mainImg.childImageSharp.fluid.src}
-              alt='person'
-            />
+            <img src={imagePath} alt='person' />
           </Col>
         </Row>
       </section>
@@ -62,10 +58,11 @@ class Hero extends React.Component {
   }
 
   icons() {
-    return this.props.icons.edges.map((value, index) => {
+    const { icons } = this.props;
+    return icons?.edges?.map((value, index) => {
       return (
         <img
-          src={value.node.childImageSharp.fluid.src}
+          src={get(value, 'node.childImageSharp.fluid.src')}
           className={`animated fadeIn move-${
             Math.floor(Math.random() * 10) % 2 === 0 ? 'up' : 'down'
           } float-image`}

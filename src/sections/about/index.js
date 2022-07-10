@@ -18,12 +18,10 @@ class Hero extends React.Component {
   static contextType = ThemeContext;
 
   render() {
+    const { id } = this.props;
+    const { height } = this.context;
     return (
-      <section
-        id={`${this.props.id}`}
-        className='about'
-        style={{ height: this.context.height }}
-      >
+      <section id={id} className='about' style={{ height }}>
         {this.particles()}
         <Row>
           <Col md={6} className='content'>
@@ -96,8 +94,11 @@ class Hero extends React.Component {
               </h6>
             </div>
             <div className='skills-container'>
+              <Progress name='Javascript' value={90} delay={1100} />
+              <Progress name='Typescript' value={90} delay={1100} />
               <Progress name='Node.js' value={90} delay={1100} />
               <Progress name='React' value={90} delay={1100} />
+              <Progress name='Redux' value={80} delay={1100} />
               <Progress name='PostgreSQL' value={80} delay={1100} />
               <Progress name='Redis' value={80} delay={1100} />
               <Progress name='RabbitMQ' value={80} delay={1100} />
