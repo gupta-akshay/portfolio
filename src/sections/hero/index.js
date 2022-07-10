@@ -1,31 +1,30 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { Row, Col } from 'react-bootstrap'
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import { Row, Col } from 'react-bootstrap';
 import get from 'lodash/get';
-import Typewriter from 'typewriter-effect'
-import Glitch from 'components/glitch'
-import ThemeContext from '../../context'
-import './styles.scss'
+import Typewriter from 'typewriter-effect';
+import Glitch from 'components/glitch';
+import ThemeContext from '../../context';
+import './styles.scss';
 
 class Hero extends React.Component {
-
-  static contextType = ThemeContext
+  static contextType = ThemeContext;
 
   render() {
     const pdfPath = get(this.props, 'mainPdf.edges.0.node.publicURL');
     return (
       <section
         id={`${this.props.id}`}
-        className="hero"
+        className='hero'
         style={{ height: this.context.height }}
       >
         <Row>
-          <Col md={6} className="content">
-            <div className="content-text">
-              <div className="line-text">
+          <Col md={6} className='content'>
+            <div className='content-text'>
+              <div className='line-text'>
                 <h4>Hello, I'm</h4>
               </div>
-              <Glitch text="Akshay Gupta" />
+              <Glitch text='Akshay Gupta' />
               <Typewriter
                 options={{
                   strings: [
@@ -39,22 +38,27 @@ class Hero extends React.Component {
                 }}
               />
               {pdfPath && (
-                <a href={pdfPath} target="_blank" download="Akshay's CV" className="hover-button">
+                <a
+                  href={pdfPath}
+                  target='_blank'
+                  download="Akshay's CV"
+                  className='hover-button'
+                >
                   <span>Download CV</span>
                 </a>
               )}
             </div>
             {this.icons()}
           </Col>
-          <Col md={6} className="img">
+          <Col md={6} className='img'>
             <img
               src={this.props.mainImg.childImageSharp.fluid.src}
-              alt="person"
+              alt='person'
             />
           </Col>
         </Row>
       </section>
-    )
+    );
   }
 
   icons() {
@@ -67,19 +71,21 @@ class Hero extends React.Component {
           } float-image`}
           style={{
             left: `${index * 10}%`,
-            bottom: `${Math.random() *
-              (+(index % 2 === 0 ? 80 : 20) - +(index % 2 === 0 ? 70 : 10)) +
-              +(index % 2 === 0 ? 70 : 10)}%`,
+            bottom: `${
+              Math.random() *
+                (+(index % 2 === 0 ? 80 : 20) - +(index % 2 === 0 ? 70 : 10)) +
+              +(index % 2 === 0 ? 70 : 10)
+            }%`,
           }}
-          alt="shape"
+          alt='shape'
           key={index}
         />
-      )
-    })
+      );
+    });
   }
 }
 
-export default props => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -106,11 +112,7 @@ export default props => (
             }
           }
         }
-        Pdf: allFile(
-          filter: {
-            base: { eq: "akshay-cv.pdf" }
-          }
-        ) {
+        Pdf: allFile(filter: { base: { eq: "akshay-cv.pdf" } }) {
           edges {
             node {
               publicURL
@@ -119,6 +121,8 @@ export default props => (
         }
       }
     `}
-    render={({ icons, Img, Pdf }) => <Hero icons={icons} mainImg={Img} mainPdf={Pdf} {...props} />}
+    render={({ icons, Img, Pdf }) => (
+      <Hero icons={icons} mainImg={Img} mainPdf={Pdf} {...props} />
+    )}
   />
-)
+);

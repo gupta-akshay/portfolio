@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -8,5 +8,5 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         scss: path.resolve(__dirname, 'src/scss'),
       },
     },
-  })
-}
+  });
+};
