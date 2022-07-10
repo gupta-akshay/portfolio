@@ -68,10 +68,14 @@
       .form-container {
         margin-top: 20px;
 
+        input {
+          height: 50px;
+        }
+
         input,
         textarea {
+          resize: none;
           overflow: visible;
-          height: 50px;
           width: 100%;
           background-color: #000;
           border: none;

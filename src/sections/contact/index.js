@@ -111,6 +111,7 @@ class Contact extends React.Component {
               <AnimationContainer delay={200} animation='fadeInUp fast'>
                 <div className='form-group'>
                   <textarea
+                    rows={7}
                     className={`message ${this.check(message) ? '' : 'error'}`}
                     placeholder='Message'
                     onChange={(e) => this.setState({ message: e.target.value })}
