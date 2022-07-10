@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+import ReactPlayer from 'react-player';
 import Layout from 'components/layout';
 import Spinner from 'components/spinner';
 import Hero from 'sections/hero';
@@ -22,6 +23,13 @@ class HomePage extends React.Component {
           <Contact id='contact' />
         </Layout>
         <Spinner duration={1000} />
+        <div style={{ zIndex: '-9999' }}>
+          <ReactPlayer
+            url='https://soundcloud.com/deejay-a-shay/sets/singles-bootlegs'
+            loop={true}
+            playing={true}
+          />
+        </div>
       </div>
     );
   }
