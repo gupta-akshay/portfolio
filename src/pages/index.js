@@ -23,7 +23,7 @@ class HomePage extends React.Component {
           <Contact id='contact' />
         </Layout>
         <Spinner duration={1000} />
-        <div style={{ zIndex: '-9999', visibility: 'hidden', height: '0' }}>
+        <div className='react-player'>
           <ReactPlayer
             url='https://soundcloud.com/deejay-a-shay/sets/singles-bootlegs'
             loop={true}

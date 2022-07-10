@@ -232,3 +232,13 @@ img {
     }
   }
 }
+
+.react-player {
+  z-index: -9999;
+  visibility: hidden;
+  height: 0;
+  div {
+    height: 0 !important;
+    width: 0 !important;
+  }
+}
