@@ -42,6 +42,11 @@ class Hero extends React.Component {
                 games. Sometimes, when I get a chance then I love to do DJing as
                 well.
               </p>
+              <p>
+                Also, if you're wondering where the audio is coming from. Then
+                don't worry, those are just a few of my singles and bootlegs
+                playing in the background.
+              </p>
               <div className='social social_icons'>
                 <FontAwesomeIcon
                   icon={faGithub}
