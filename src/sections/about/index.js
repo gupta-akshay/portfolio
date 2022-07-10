@@ -93,6 +93,7 @@ class Hero extends React.Component {
                 a page. Right?!
               </h6>
             </div>
+            <div className='separator' />
             <div className='skills-container'>
               <Progress name='Javascript' value={90} delay={1100} />
               <Progress name='Typescript' value={90} delay={1100} />
