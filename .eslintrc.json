@@ -11,12 +11,11 @@
     "jest": true
   },
   "extends": [
-    "react-app",
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:jsx-a11y/recommended"
+    "plugin:react-hooks/recommended"
   ],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -24,12 +23,11 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "jsx-a11y"],
+  "plugins": ["react"],
   "rules": {
     "no-bitwise": 0,
     "react/react-in-jsx-scope": "off",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-    "jsx-a11y/control-has-associated-label": 2
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
