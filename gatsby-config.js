@@ -39,14 +39,13 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify',
       options: {
         mergeSecurityHeaders: true,
-        mergeLinkHeaders: true,
         mergeCachingHeaders: true,
       },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Poppins\:300,400,400,700,800,900`],
+        fonts: [`Poppins:300,400,400,700,800,900`],
         display: 'swap',
       },
     },

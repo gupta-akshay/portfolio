@@ -1,6 +1,6 @@
 import React from 'react';
-import Particles from 'react-particles-js';
-import Progress from 'components/progress';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
 import { Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,6 +12,7 @@ import {
   faFacebook,
 } from '@fortawesome/free-brands-svg-icons';
 import ThemeContext from '../../context';
+import Progress from 'components/progress';
 import './styles.scss';
 
 class Hero extends React.Component {
@@ -22,14 +23,44 @@ class Hero extends React.Component {
     const { height } = this.context;
     return (
       <section id={id} className='about' style={{ height }}>
-        {this.particles()}
+        <Particles
+          id='particles'
+          className='particles'
+          init={(main) => loadFull(main)}
+          options={{
+            particles: {
+              number: {
+                value: 50,
+                density: {
+                  enable: false,
+                  value_area: 5000,
+                },
+              },
+              line_linked: {
+                enable: true,
+                opacity: 0.5,
+              },
+              size: {
+                value: 1,
+              },
+              move: {
+                direction: "none",
+                enable: true
+              }
+            },
+            fullScreen: {
+              enable: false,
+            },
+            retina_detect: true,
+          }}
+        />
         <Row>
           <Col md={6} className='content'>
             <div className='content-text'>
               <div className='line-text'>
                 <h4>About Me</h4>
               </div>
-              <h3>I'm a Full Stack web developer working remotely</h3>
+              <h3>I&apos;m a Full Stack web developer working remotely</h3>
               <div className='separator' />
               <p>
                 I am a developer currently working with PeopleGrove, having more
@@ -44,8 +75,8 @@ class Hero extends React.Component {
                 well.
               </p>
               <p>
-                Also, if you're wondering where the audio is coming from. Then
-                don't worry, those are just a few of my singles and bootlegs
+                Also, if you&apos;re wondering where the audio is coming from. Then
+                don&apos;t worry, those are just a few of my singles and bootlegs
                 playing in the background.
               </p>
               <div className='social social_icons'>
@@ -117,33 +148,6 @@ class Hero extends React.Component {
           </Col>
         </Row>
       </section>
-    );
-  }
-
-  particles() {
-    return (
-      <Particles
-        className='particles'
-        params={{
-          particles: {
-            number: {
-              value: 50,
-              density: {
-                enable: false,
-                value_area: 5000,
-              },
-            },
-            line_linked: {
-              enable: true,
-              opacity: 0.5,
-            },
-            size: {
-              value: 1,
-            },
-          },
-          retina_detect: true,
-        }}
-      />
     );
   }
 }

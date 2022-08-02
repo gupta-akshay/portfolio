@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faBars } from '@fortawesome/free-solid-svg-icons';
-var scrollToElement = require('scroll-to-element');
+const scrollToElement = require('scroll-to-element');
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Navigation extends React.Component {
     scrollToElement(el, {
       offset: 0,
       ease: 'in-out-expo',
-      duration: 2000,
+      duration: 1000,
     }).on('end', () => {
       this.props.change(v);
     });

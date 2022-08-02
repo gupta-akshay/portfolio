@@ -81,7 +81,7 @@ class Layout extends React.Component {
       scrollToElement(el, {
         offset: 0,
         ease: 'in-out-expo',
-        duration: 2000,
+        duration: 1000,
       }).on('end', () => {
         this.scrolling = false;
       });
