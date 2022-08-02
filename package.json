@@ -1,8 +1,8 @@
 {
-  "name": "retro-template",
-  "description": "Retro - One Page Modern Resume Template",
+  "name": "akshay-portfolio",
+  "description": "Full-stack Web Developer, Electronic Music Producer & DJ",
   "version": "1.0.0",
-  "author": "Syed Muaz Ali",
+  "author": "Akshay Gupta",
   "private": true,
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^6.1.1",

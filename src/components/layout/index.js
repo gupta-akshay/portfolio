@@ -4,7 +4,7 @@ import Navigation from 'components/navigation';
 import ScrollLock from 'react-scrolllock';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'scss/index.scss';
-var scrollToElement = require('scroll-to-element');
+const scrollToElement = require('scroll-to-element');
 
 class Layout extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class Layout extends React.Component {
     this.state = {
       height: 0,
       mobile: false,
-      scrolllock: 0,
+      scrollLock: 0,
       width: 0,
     };
     this.sections = [
@@ -31,20 +31,20 @@ class Layout extends React.Component {
     }
     this.setState({ height: window.innerHeight, width: window.innerWidth });
     if (window.innerWidth < 1025) {
-      this.setState({ scrolllock: false });
+      this.setState({ scrollLock: false });
       if (window.innerWidth < 992) {
         this.setState({ mobile: true });
       }
     } else {
-      this.setState({ mobile: false, scrolllock: true });
+      this.setState({ mobile: false, scrollLock: true });
     }
   };
 
   setDefaults() {
     this.setState({
       height: window.innerWidth < 992 ? 'auto' : window.innerHeight,
-      mobile: window.innerWidth < 992 ? true : false,
-      scrolllock: window.innerWidth < 1025 ? false : true,
+      mobile: window.innerWidth < 992,
+      scrollLock: window.innerWidth >= 1025,
       width: window.innerWidth,
     });
   }
@@ -90,13 +90,14 @@ class Layout extends React.Component {
 
   render() {
     const { children } = this.props;
+    const { scrollLock, mobile, height } = this.state;
     return (
       <ThemeProvider
-        value={{ height: this.state.mobile ? 'auto' : this.state.height }}
+        value={{ height: mobile ? 'auto' : height }}
       >
         <Navigation change={this.changeSection} />
         <div onWheel={(e) => this.wheel(e)}>{children}</div>
-        <ScrollLock isActive={this.state.scrolllock} />
+        <ScrollLock isActive={scrollLock} />
       </ThemeProvider>
     );
   }
