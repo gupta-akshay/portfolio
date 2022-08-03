@@ -19,7 +19,7 @@ const Progress = ({ delay, value: propValue, name }: ProgressProps) => {
       setAnimationComplete(true);
       showProgress();
     }
-  }, []);
+  }, [inViewport]);
 
   const showProgress = () => {
     setTimeout(() => {
@@ -28,7 +28,7 @@ const Progress = ({ delay, value: propValue, name }: ProgressProps) => {
   }
 
   return (
-    <div className='progress-container' ref={progressRef}>
+    <div className='progress-container' ref={progressRef} id={name}>
       <span className='name'>{name}</span>
       <span className='value'>
         <CountUp

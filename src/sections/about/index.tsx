@@ -56,6 +56,7 @@ const ParticlesContainer = () =>
 
 const Hero = ({ id }: HeroType) => {
   const { height } = useContext(ThemeContext) as ThemeContextType;
+
   return (
     <section id={id} className='about' style={{ height }}>
       <ParticlesContainer />
