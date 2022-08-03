@@ -26,10 +26,7 @@ class Contact extends React.Component {
 
   check(val) {
     const { error } = this.state;
-    if (error && val === '') {
-      return false;
-    }
-    return true;
+    return !(error && val === '');
   }
 
   submit() {
