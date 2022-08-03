@@ -1,4 +1,4 @@
-import type { GatsbyConfig} from "gatsby";
+import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -6,6 +6,7 @@ const config: GatsbyConfig = {
     description: 'Full-stack Web Developer, Electronic Music Producer & DJ',
   },
   pathPrefix: '/',
+  graphqlTypegen: true,
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',

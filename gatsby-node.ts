@@ -8,6 +8,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = async 
         components: path.resolve(__dirname, 'src/components'),
         sections: path.resolve(__dirname, 'src/sections'),
         scss: path.resolve(__dirname, 'src/scss'),
+        interfaces: path.resolve(__dirname, 'src/interfaces'),
       },
     },
   });
