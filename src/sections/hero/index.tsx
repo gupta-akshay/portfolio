@@ -3,9 +3,9 @@ import { StaticQuery, graphql } from 'gatsby';
 import { Row, Col } from 'react-bootstrap';
 import get from 'lodash/get';
 import Typewriter from 'typewriter-effect';
-import Glitch from 'components/glitch';
+import Glitch from '../../components/glitch';
 import ThemeContext from '../../context';
-import { ThemeContextType } from 'interfaces';
+import { ThemeContextType } from '../../interfaces';
 import { HeroTypes } from './types';
 
 import './styles.scss';

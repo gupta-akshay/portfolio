@@ -12,8 +12,8 @@ import {
   faFacebook,
 } from '@fortawesome/free-brands-svg-icons';
 import ThemeContext from '../../context';
-import Progress from 'components/progress';
-import { ThemeContextType } from 'interfaces';
+import Progress from '../../components/progress';
+import { ThemeContextType } from '../../interfaces';
 
 import './styles.scss';
 
