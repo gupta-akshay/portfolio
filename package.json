@@ -14,10 +14,8 @@
     "gatsby-link": "4.20.0",
     "gatsby-plugin-feed": "4.20.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
-    "gatsby-plugin-netlify": "5.0.1",
     "gatsby-plugin-nprogress": "4.20.0",
     "gatsby-plugin-offline": "5.20.0",
-    "gatsby-plugin-preact": "6.20.0",
     "gatsby-plugin-react-helmet": "5.20.0",
     "gatsby-plugin-sass": "^5.20.0",
     "gatsby-plugin-sharp": "4.20.0",
@@ -31,7 +29,6 @@
     "gatsby-transformer-remark": "5.20.0",
     "gatsby-transformer-sharp": "4.20.0",
     "lodash": "^4.17.21",
-    "origen-react-instagram-feed": "^0.0.3",
     "react": "^18.2.0",
     "react-animated-css": "^1.2.1",
     "react-bootstrap": "^2.4.0",
@@ -55,6 +52,9 @@
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@types/node": "^18.6.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
     "babel-eslint": "10.1.0",
     "bootstrap": "5.2.0",
     "eslint": "^8.19.0",
@@ -67,16 +67,16 @@
     "prettier": "^2.7.1",
     "prettier-eslint": "^15.0.1",
     "prismjs": "1.28.0",
-    "react-helmet": "6.1.0"
+    "react-helmet": "6.1.0",
+    "typescript": "^4.7.4"
   },
   "keywords": [
     "retro",
     "portfolio"
   ],
-  "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "lint": "eslint \"**/*.{js,jsx}\""
+    "lint": "eslint \"**/*.{js,jsx,ts,tsx}\""
   }
 }

@@ -1,4 +1,6 @@
-module.exports = {
+import type { GatsbyConfig} from "gatsby";
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Akshay Gupta',
     description: 'Full-stack Web Developer, Electronic Music Producer & DJ',
@@ -36,13 +38,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify',
-      options: {
-        mergeSecurityHeaders: true,
-        mergeCachingHeaders: true,
-      },
-    },
-    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Poppins:300,400,400,700,800,900`],
@@ -56,3 +51,5 @@ module.exports = {
     'gatsby-transformer-sharp',
   ],
 };
+
+export default config;

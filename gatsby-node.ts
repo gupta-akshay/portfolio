@@ -1,5 +1,7 @@
+import type { GatsbyNode } from "gatsby"
 const path = require('path');
-exports.onCreateWebpackConfig = ({ actions }) => {
+
+export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = async ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -9,4 +11,4 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       },
     },
   });
-};
+}
