@@ -15,3 +15,9 @@ export interface AnimationContainerProps {
   animation: string,
   delay: number,
 }
+
+export interface ProgressProps {
+  delay: number,
+  value: number,
+  name: string,
+}
