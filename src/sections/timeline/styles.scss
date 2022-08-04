@@ -55,7 +55,7 @@
           }
 
           .horizontal-timeline-container {
-            transition: opacity 1s ease-in-out;
+            transition: opacity 2s ease-in-out;
             opacity: 1;
           }
 
@@ -100,6 +100,12 @@
               border-radius: 10px;
               transition: all 0.3s ease-in-out;
 
+              @media (min-width: 1500px) {
+                min-width: 800px;
+                max-width: 1000px;
+                margin-top: 100px;
+              }
+
               @media (max-width: 991px) {
                 min-width: 100%;
               }
@@ -126,6 +132,9 @@
                   width: 100%;
                   text-align: left;
                 }
+                @media (min-width: 1500px) {
+                  font-size: 30px;
+                }
               }
 
               &__company {
@@ -139,11 +148,17 @@
                   width: 100%;
                   text-align: left;
                 }
+                @media (min-width: 1500px) {
+                  font-size: 24px;
+                }
               }
 
               &__time-in-role, &__location {
                 color: #d0d0d0;
                 font-size: 14px;
+                @media (min-width: 1500px) {
+                  font-size: 18px;
+                }
               }
 
               &__responsibilities {
@@ -152,23 +167,32 @@
                 align-self: flex-start;
                 width: max-content;
                 font-style: italic;
+                @media (min-width: 1500px) {
+                  font-size: 16px;
+                }
                 &--content {
                   font-size: 14px;
                   margin-top: 5px;
                   color: #d0d0d0;
                   align-self: flex-start;
                   text-align: left;
+                  ul {
+                    padding-left: 0;
+                  }
+                  li {
+                    list-style: none;
+                    margin-bottom: 5px;
+                    &:last-of-type {
+                      margin-bottom: 0;
+                    }
+                  }
                   @media (max-width: 991px) {
                     font-size: 12px;
-                    ul {
-                      padding-left: 0;
-                    }
+                  }
+                  @media (min-width: 1500px) {
+                    font-size: 18px;
                     li {
-                      list-style: none;
-                      margin-bottom: 5px;
-                      &:last-of-type {
-                        margin-bottom: 0;
-                      }
+                      margin-bottom: 10px;
                     }
                   }
                 }
@@ -189,6 +213,9 @@
                     @media (max-width: 991px) {
                       font-size: 12px;
                     }
+                    @media (min-width: 1500px) {
+                      font-size: 14px;
+                    }
                   }
                 }
               }
@@ -197,43 +224,6 @@
 
           .row {
             overflow: hidden;
-          }
-          .service {
-            text-align: center;
-            margin: 20px 0px;
-            padding: 20px 40px;
-            @media (max-width: 991px) {
-              padding: 0;
-              margin-bottom: 50px;
-            }
-            @media (max-width: 1300px) {
-              padding: 0 10px;
-            }
-            .icon svg {
-              font-size: 50px;
-              color: #eb83f8;
-              &.solid {
-                font-size: 40px !important;
-              }
-            }
-            h4 {
-              color: #fff;
-              font-family: Poppins, serif;
-              margin: 15px 0px 9px 0px;
-              font-size: 20px;
-            }
-            p {
-              font-family: Poppins, serif;
-              color: #eee;
-              font-size: 10px;
-              font-weight: 300;
-            }
-            &.border {
-              border: 1px solid #251170 !important;
-              @media (max-width: 991px) {
-                border: none;
-              }
-            }
           }
         }
       }
