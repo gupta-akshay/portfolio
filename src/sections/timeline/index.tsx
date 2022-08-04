@@ -34,7 +34,17 @@ const Timeline = ({ id }: TimelineType) => {
   };
 
   const renderCounters = () => {
-    return null;
+    return (
+      <Container>
+        <BaffleText
+          text="Helping companies develop customer-focused products"
+          revealDuration={500}
+          revealDelay={500}
+          callMethodTime={1100}
+          parentMethod={() => {}}
+        />
+      </Container>
+    );
   };
 
   return (

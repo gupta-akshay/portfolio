@@ -233,9 +233,27 @@
     min-height: 20%;
     background-color: #251170;
     display: flex;
+    .baffle_text {
+      text-align: center;
+    }
+    .baffle_text span {
+      color: #fff;
+      font-family: Poppins, serif;
+      font-size: 50px;
+      line-height: 50px;
+      font-weight: 800;
+      text-align: center;
+      @media (max-width: 991px) {
+        font-size: 20px;
+        line-height: 40px;
+        white-space: initial;
+        word-wrap: break-word;
+      }
+    }
     .container {
       display: flex;
       align-items: center;
+      justify-content: center;
       @media (max-width:991px) {
         display: block;
       }
