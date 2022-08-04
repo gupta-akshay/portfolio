@@ -34,7 +34,7 @@ const Timeline = () => {
             const dateSubString = (new Date(date)).toDateString().substring(4).trim();
             return dateSubString.split(' ').filter((el, index) => index !== 1).join(' ');
           }}
-          styles={{ background: '#000', foreground: '#eb83f8', outline: '#fff' }}
+          styles={{ background: 'transparent', foreground: '#eb83f8', outline: '#fff' }}
         />
       </AnimationContainer>
       <AnimationContainer animation='alideInLeft experience-container' delay={100}>

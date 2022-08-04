@@ -14,10 +14,10 @@ const ParticlesContainer = ({ id }: ParticlesProps) =>
     options={{
       particles: {
         number: {
-          value: 50,
+          value: 70,
           density: {
             enable: false,
-            value_area: 5000,
+            value_area: 10000,
           },
         },
         line_linked: {
@@ -28,6 +28,7 @@ const ParticlesContainer = ({ id }: ParticlesProps) =>
           value: 1,
         },
         move: {
+          speed: 2,
           direction: "none",
           enable: true
         }

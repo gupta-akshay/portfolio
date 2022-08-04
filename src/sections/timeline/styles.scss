@@ -1,5 +1,5 @@
 .services {
-  background-color: #000;
+  background-color: rgba(255, 255, 255, 0.1);
   .row.top {
     min-height: 80%;
     display: block;
@@ -76,6 +76,12 @@
             }
             .future, .past {
               color: #fff !important;
+              span {
+                background-color: #000 !important;
+                &:hover {
+                  background-color: #eb83f8 !important;
+                }
+              }
             }
             .experience-container {
               display: flex;
