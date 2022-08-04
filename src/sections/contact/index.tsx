@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
+import { get } from 'lodash';
 import { Row, Col } from 'react-bootstrap';
 
 import AnimationContainer from '../../components/animation-container';
@@ -12,27 +13,115 @@ type ContactType = {
   id: string
 };
 
+const emailRegex = /\S+@\S+\.\S+/;
+const phoneRegex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
+
 const Contact = ({ id }: ContactType) => {
   const { height } = useContext(ThemeContext) as ThemeContextType;
+
+  const nameRef = useRef<HTMLInputElement>(null)
+  const phoneRef = useRef<HTMLInputElement>(null)
+  const emailRef = useRef<HTMLInputElement>(null)
+  const messageRef = useRef<HTMLTextAreaElement>(null)
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
   const [show, setShow] = useState(false);
+  const [errorMap, setErrorMap] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    message: false,
+  });
 
   const enableShow = () => {
     setShow(true);
-  }
+  };
 
-  const check = (val: string) => !(error && val === '');
-
-  const submit = () => {
+  const submit = async () => {
     if (name === '' || email === '' || message === '') {
       setError(true);
       return;
     }
+    if (!emailRegex.test(email) || (phone.trim().length && !phoneRegex.test(phone))) {
+      setError(true);
+      return;
+    }
+
     setError(false);
+
+    const toSend = {
+      name: name.trim(),
+      email: email.trim(),
+      phone: phone.trim(),
+      message: message.trim(),
+    };
+
+    try {
+      const response  = await fetch('/api/sendMail', {
+        method: 'POST',
+        body: JSON.stringify(toSend)
+      });
+
+      if (response.ok) {
+        console.log('sent successfully');
+      }
+    } catch (e) {
+      console.log('Error while sending mail ---', e);
+    }
+  };
+
+  const handleNameChange = (val: string) => {
+    const value = get(nameRef, 'current.value', '');
+    if (value.length && value.trim().length === 0) {
+      setErrorMap({ ...errorMap, name: true });
+    } else {
+      setErrorMap({ ...errorMap, name: false });
+    }
+    setName(val);
+  };
+
+  const handleMessageChange = (val: string) => {
+    const value = get(messageRef, 'current.value', '');
+    if (value.length && value.trim().length === 0) {
+      setErrorMap({ ...errorMap, message: true });
+    } else {
+      setErrorMap({ ...errorMap, message: false });
+    }
+    setMessage(val);
+  };
+
+  const handleEmailChange = (val: string) => {
+    const value = get(emailRef, 'current.value', '');
+    if (
+      value.length > 0 &&
+      (value.trim().length === 0 || !emailRegex.test(value))
+    ) {
+      setErrorMap({ ...errorMap, email: true });
+    } else {
+      setErrorMap({ ...errorMap, email: false });
+    }
+    setEmail(val);
+  };
+
+  const handlePhoneChange = (val: string) => {
+    const value = get(phoneRef, 'current.value', '');
+    if (
+      value.length > 0 &&
+      (value.trim().length === 0 || !phoneRegex.test(value))
+    ) {
+      setErrorMap({ ...errorMap, phone: true });
+    } else {
+      setErrorMap({ ...errorMap, phone: false });
+    }
+    setPhone(val);
+  };
+
+  const isButtonDisabled = () => {
+    return Object.values(errorMap).some(value => value);
   };
 
   const renderForm = () => {
@@ -46,48 +135,53 @@ const Contact = ({ id }: ContactType) => {
                 <AnimationContainer delay={50} animation='fadeInUp fast'>
                   <div className='form-group'>
                     <input
+                      ref={nameRef}
                       type='text'
-                      className={`name ${check(name) ? '' : 'error'}`}
+                      className={`name ${errorMap['name'] ? 'error' : ''}`}
                       placeholder='Name'
-                      onChange={(e) => setName(e.target.value)}
+                      onChange={(e) => handleNameChange(e.target.value)}
                     />
                   </div>
                 </AnimationContainer>
                 <AnimationContainer delay={100} animation='fadeInUp fast'>
                   <div className='form-group'>
                     <input
+                      ref={emailRef}
                       type='text'
-                      className={`email ${check(email) ? '' : 'error'}`}
+                      className={`email ${errorMap['email'] ? 'error' : ''}`}
                       placeholder='Email'
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => handleEmailChange(e.target.value)}
                     />
                   </div>
                 </AnimationContainer>
                 <AnimationContainer delay={150} animation='fadeInUp fast'>
                   <div className='form-group'>
                     <input
+                      ref={phoneRef}
                       type='text'
-                      className='phone'
+                      className={`phone ${errorMap['phone'] ? 'error' : ''}`}
                       placeholder='Phone'
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => handlePhoneChange(e.target.value)}
                     />
                   </div>
                 </AnimationContainer>
                 <AnimationContainer delay={200} animation='fadeInUp fast'>
                   <div className='form-group'>
                   <textarea
+                    ref={messageRef}
                     rows={7}
-                    className={`message ${check(message) ? '' : 'error'}`}
+                    className={`message ${errorMap['message'] ? 'error' : ''}`}
                     placeholder='Message'
-                    onChange={(e) => setMessage(e.target.value)}
+                    onChange={(e) => handleMessageChange(e.target.value)}
                   ></textarea>
                   </div>
                 </AnimationContainer>
                 <AnimationContainer delay={250} animation='fadeInUp fast'>
                   <div className='submit'>
                     <button
-                      className={`hover-button ${error ? 'error' : ''}`}
+                      className={`hover-button ${isButtonDisabled() || error ? 'error' : ''}`}
                       onClick={() => submit()}
+                      disabled={isButtonDisabled() || error}
                     >
                       <span>Send Message</span>
                     </button>
