@@ -18,6 +18,7 @@ class Layout extends React.Component {
     this.sections = [
       'home',
       'about',
+      'work experience',
       'contact',
     ];
     this.section_id = 0;

@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
 import { Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,6 +11,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import ThemeContext from '../../context';
 import Progress from '../../components/progress';
+import ParticlesContainer from "../../components/particles";
 import { ThemeContextType } from '../../interfaces';
 
 import './styles.scss';
@@ -21,45 +20,12 @@ type HeroType = {
   id: string
 };
 
-const ParticlesContainer = () =>
-  <Particles
-    id='particles'
-    className='particles'
-    init={(main) => loadFull(main)}
-    options={{
-      particles: {
-        number: {
-          value: 50,
-          density: {
-            enable: false,
-            value_area: 5000,
-          },
-        },
-        line_linked: {
-          enable: true,
-          opacity: 0.5,
-        },
-        size: {
-          value: 1,
-        },
-        move: {
-          direction: "none",
-          enable: true
-        }
-      },
-      fullScreen: {
-        enable: false,
-      },
-      retina_detect: true,
-    }}
-  />;
-
 const Hero = ({ id }: HeroType) => {
   const { height } = useContext(ThemeContext) as ThemeContextType;
 
   return (
     <section id={id} className='about' style={{ height }}>
-      <ParticlesContainer />
+      <ParticlesContainer id='particles-1' />
       <Row>
         <Col md={6} className='content'>
           <div className='content-text'>

@@ -18,6 +18,9 @@ class Navigation extends React.Component {
         name: 'About',
       },
       {
+        name: 'Work Experience',
+      },
+      {
         name: 'Contact',
       },
     ];

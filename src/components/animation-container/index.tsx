@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useInViewport } from "react-in-viewport";
 
-import { AnimationContainerProps } from 'interfaces';
+import { AnimationContainerProps } from '../../interfaces';
 
 import 'animate.css/animate.css';
 

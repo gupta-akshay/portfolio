@@ -23,5 +23,5 @@ export interface ProgressProps {
 }
 
 export interface ThemeContextType {
-  height: string | number
+  height: any
 }
