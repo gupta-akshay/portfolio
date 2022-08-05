@@ -70,6 +70,7 @@ const handler = async (
       await sendgrid.send({
         from: {
           email: 'contact@akshaygupta.live',
+          name: 'Akshay Gupta',
         },
         personalizations: [
           {
