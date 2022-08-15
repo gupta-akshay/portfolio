@@ -1,11 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useInViewport } from "react-in-viewport";
+import { useInViewport } from 'react-in-viewport';
 
 import { AnimationContainerProps } from '../../interfaces';
 
 import 'animate.css/animate.css';
 
-const AnimationContainer = ({ id, children, height, animation, delay }: AnimationContainerProps) => {
+const AnimationContainer = ({
+  children,
+  height,
+  animation,
+  delay,
+}: AnimationContainerProps) => {
   const animationContainerRef = useRef<HTMLDivElement>(null);
   const [inViewportState, setInViewportState] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
@@ -15,8 +20,8 @@ const AnimationContainer = ({ id, children, height, animation, delay }: Animatio
   const changeClass = () => {
     setTimeout(() => {
       setClassChanged(true);
-    }, delay)
-  }
+    }, delay);
+  };
 
   useEffect(() => {
     if (inViewportState !== inViewport && !animationComplete) {

@@ -1,17 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-import BaffleText from "../../components/baffle-text";
+import BaffleText from '../../components/baffle-text';
 import HorizontalTimeline from '../../components/timeline';
-import ParticlesContainer from "../../components/particles";
-import ThemeContext from "../../context";
-import { ThemeContextType } from "../../interfaces";
+import ParticlesContainer from '../../components/particles';
+import ThemeContext from '../../context';
+import { SectionProps, ThemeContextType } from '../../interfaces';
+
 import './styles.scss';
 
-type TimelineType = {
-  id: string
-};
-
-const Timeline = ({ id }: TimelineType) => {
+const Timeline = ({ id }: SectionProps) => {
   const { height } = useContext(ThemeContext) as ThemeContextType;
   const [show, setShow] = useState(false);
 
@@ -30,14 +27,14 @@ const Timeline = ({ id }: TimelineType) => {
           </Row>
         ) : null}
       </>
-    )
+    );
   };
 
   const renderCounters = () => {
     return (
       <Container>
         <BaffleText
-          text="Helping companies develop customer-focused products"
+          text='Helping companies develop customer-focused products'
           revealDuration={500}
           revealDelay={500}
           callMethodTime={1100}
@@ -48,29 +45,22 @@ const Timeline = ({ id }: TimelineType) => {
   };
 
   return (
-    <section
-      id={`${id}`}
-      className="services"
-      style={{ height }}
-    >
+    <section id={`${id}`} className='services' style={{ height }}>
       <Row
-        className="top"
+        className='top'
         style={{
-          maxHeight:
-            height !== 'auto'
-              ? height * 0.8
-              : 'inherit',
+          maxHeight: height !== 'auto' ? height * 0.8 : 'inherit',
         }}
       >
         <ParticlesContainer id='particles-2' />
-        <div className="content">
+        <div className='content'>
           <Col md={12}>
-            <div className="line-text">
+            <div className='line-text'>
               <h4>Work Experience</h4>
             </div>
-            <div className="heading">
+            <div className='heading'>
               <BaffleText
-                text="What I have done"
+                text='What I have done'
                 revealDuration={500}
                 revealDelay={500}
                 parentMethod={enableShow}
@@ -78,12 +68,9 @@ const Timeline = ({ id }: TimelineType) => {
               />
             </div>
             <div
-              className="services_container"
+              className='services_container'
               style={{
-                minHeight:
-                  height !== 'auto'
-                    ? height * 0.6
-                    : 'inherit',
+                minHeight: height !== 'auto' ? height * 0.6 : 'inherit',
               }}
             >
               <Container>{renderServices()}</Container>
@@ -91,9 +78,9 @@ const Timeline = ({ id }: TimelineType) => {
           </Col>
         </div>
       </Row>
-      <Row className="bottom">{renderCounters()}</Row>
+      <Row className='bottom'>{renderCounters()}</Row>
     </section>
-  )
+  );
 };
 
 export default Timeline;

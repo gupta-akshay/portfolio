@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './styles.scss';
+import { SpinnerProps } from '../../interfaces';
 
-type SpinnerProps = {
-  duration: number
-};
+import './styles.scss';
 
 const Spinner = ({ duration }: SpinnerProps) => {
   const [spin, setSpin] = useState(true);
@@ -14,17 +12,17 @@ const Spinner = ({ duration }: SpinnerProps) => {
         const element = document.getElementById('spinner') as HTMLDivElement;
         element.remove();
       }, 500);
-    })
+    });
   }, []);
 
   const showSpinner = (duration: number) => {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
       setTimeout(() => {
         setSpin(false);
         document.body.classList.remove('no-overflow');
         resolve();
       }, duration);
-    })
+    });
   };
 
   return (

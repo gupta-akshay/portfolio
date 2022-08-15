@@ -28,8 +28,7 @@ export interface PageResources {
   page: Page;
   staticQueryResults: StaticQueryResults;
 }
-export interface DefaultOrPageContextOrComponentOrParams {
-}
+export interface DefaultOrPageContextOrComponentOrParams {}
 export interface Head {
   default: DefaultOrPageContextOrComponentOrParams;
 }
@@ -52,7 +51,7 @@ export interface Page {
   componentChunkName: string;
   path: string;
   webpackCompilationHash: string;
-  staticQueryHashes?: (string)[] | null;
+  staticQueryHashes?: string[] | null;
 }
 export interface StaticQueryResults {
   3907883290: StaticQueryResultsValue;
@@ -66,7 +65,7 @@ export interface Data1 {
   Pdf: Pdf;
 }
 export interface Icons {
-  edges?: (EdgesEntity)[] | null;
+  edges?: EdgesEntity[] | null;
 }
 export interface EdgesEntity {
   node: NodeOrImg;
@@ -81,7 +80,7 @@ export interface Fluid {
   src: string;
 }
 export interface Pdf {
-  edges?: (EdgesEntity1)[] | null;
+  edges?: EdgesEntity1[] | null;
 }
 export interface EdgesEntity1 {
   node: Node;

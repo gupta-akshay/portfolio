@@ -1,9 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
+// @ts-ignore
 import Baffle from 'baffle-react';
 import { useInViewport } from 'react-in-viewport';
-import { BaffleTextPropTypes } from 'interfaces';
+import { BaffleTextPropTypes } from '../../interfaces';
 
-const BaffleText = ({ text, callMethodTime, revealDuration, revealDelay, parentMethod }: BaffleTextPropTypes) => {
+const BaffleText = ({
+  text,
+  callMethodTime,
+  revealDuration,
+  revealDelay,
+  parentMethod,
+}: BaffleTextPropTypes) => {
   const baffleTextRef = useRef<HTMLSpanElement>(null);
   const [inViewportState, setInViewport] = useState(false);
   const [animationComplete, setAnimationComplete] = useState(false);
@@ -15,13 +22,13 @@ const BaffleText = ({ text, callMethodTime, revealDuration, revealDelay, parentM
     setTimeout(() => {
       setForce(true);
     }, revealDelay + revealDuration);
-  }
+  };
 
   const parentMethodCall = () => {
     setTimeout(() => {
       parentMethod();
     }, callMethodTime);
-  }
+  };
 
   useEffect(() => {
     if (inViewportState !== inViewport && !animationComplete) {
@@ -41,7 +48,7 @@ const BaffleText = ({ text, callMethodTime, revealDuration, revealDelay, parentM
         {!force ? (
           <Baffle
             speed={50}
-            characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*"
+            characters='ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*'
             obfuscate={obfuscate}
             update={true}
             revealDuration={revealDuration}
@@ -54,7 +61,7 @@ const BaffleText = ({ text, callMethodTime, revealDuration, revealDelay, parentM
         )}
       </span>
     </>
-  )
+  );
 };
 
 export default BaffleText;

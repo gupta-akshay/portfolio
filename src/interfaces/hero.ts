@@ -5,7 +5,7 @@ export interface HeroTypes {
   id: string;
 }
 export interface Icons {
-  edges?: (EdgesEntity)[] | null;
+  edges?: EdgesEntity[] | null;
 }
 export interface EdgesEntity {
   node: NodeOrMainImg;
@@ -20,7 +20,7 @@ export interface Fluid {
   src: string;
 }
 export interface MainPdf {
-  edges?: (EdgesEntity1)[] | null;
+  edges?: EdgesEntity1[] | null;
 }
 export interface EdgesEntity1 {
   node: Node;

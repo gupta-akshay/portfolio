@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { Row, Col } from 'react-bootstrap';
 import get from 'lodash/get';
@@ -6,7 +6,7 @@ import Typewriter from 'typewriter-effect';
 import Glitch from '../../components/glitch';
 import ThemeContext from '../../context';
 import { ThemeContextType } from '../../interfaces';
-import { HeroTypes } from './types';
+import { HeroTypes } from '../../interfaces/hero';
 
 import './styles.scss';
 
@@ -25,7 +25,7 @@ const HeroContainer = ({ id, icons, mainImg, mainPdf }: HeroTypes) => {
             left: `${index * 10}%`,
             bottom: `${
               Math.random() *
-              (+(index % 2 === 0 ? 80 : 20) - +(index % 2 === 0 ? 70 : 10)) +
+                (+(index % 2 === 0 ? 80 : 20) - +(index % 2 === 0 ? 70 : 10)) +
               +(index % 2 === 0 ? 70 : 10)
             }%`,
           }}
@@ -34,7 +34,7 @@ const HeroContainer = ({ id, icons, mainImg, mainPdf }: HeroTypes) => {
         />
       );
     });
-  }
+  };
 
   const pdfPath = get(mainPdf, 'edges.0.node.publicURL');
   const imagePath = get(mainImg, 'childImageSharp.fluid.src');
@@ -60,12 +60,7 @@ const HeroContainer = ({ id, icons, mainImg, mainPdf }: HeroTypes) => {
               }}
             />
             {pdfPath && (
-              <a
-                href={pdfPath}
-                target='_blank'
-                download="Akshay's CV"
-                className='hover-button'
-              >
+              <a href={pdfPath} download="Akshay's CV" className='hover-button'>
                 <span>Download CV</span>
               </a>
             )}
@@ -77,11 +72,11 @@ const HeroContainer = ({ id, icons, mainImg, mainPdf }: HeroTypes) => {
         </Col>
       </Row>
     </section>
-  )
+  );
 };
 
 type initProps = {
-  id: string
+  id: string;
 };
 
 const Hero = (props: initProps) => (

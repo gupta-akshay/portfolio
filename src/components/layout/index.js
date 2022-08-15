@@ -15,12 +15,7 @@ class Layout extends React.Component {
       scrollLock: 0,
       width: 0,
     };
-    this.sections = [
-      'home',
-      'about',
-      'work experience',
-      'contact',
-    ];
+    this.sections = ['home', 'about', 'work experience', 'contact'];
     this.section_id = 0;
     this.scrolling = false;
     this.changeSection = this.changeSection.bind(this);
@@ -93,9 +88,7 @@ class Layout extends React.Component {
     const { children } = this.props;
     const { scrollLock, mobile, height } = this.state;
     return (
-      <ThemeProvider
-        value={{ height: mobile ? 'auto' : height }}
-      >
+      <ThemeProvider value={{ height: mobile ? 'auto' : height }}>
         <Navigation change={this.changeSection} />
         <div onWheel={(e) => this.wheel(e)}>{children}</div>
         <ScrollLock isActive={scrollLock} />

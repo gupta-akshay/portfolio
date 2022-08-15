@@ -13,7 +13,20 @@ const data = [
          <li>Leading various tech initiatives like, use react-query, expand ElasticSearch usage and implement CDC pipeline.</li>
       </ul>
     `,
-    skills: ['Javascript', 'TypeScript', 'Node.js', 'React.js', 'Redux', 'Elasticsearch', 'Redis', 'PostgreSQL', 'RabbitMQ', 'SASS', 'Google Cloud Functions', 'Google Cloud Pub/Sub'],
+    skills: [
+      'Javascript',
+      'TypeScript',
+      'Node.js',
+      'React.js',
+      'Redux',
+      'Elasticsearch',
+      'Redis',
+      'PostgreSQL',
+      'RabbitMQ',
+      'SASS',
+      'Google Cloud Functions',
+      'Google Cloud Pub/Sub',
+    ],
   },
   {
     id: 2,
@@ -29,7 +42,19 @@ const data = [
          <li>Worked on code-splitting in React front-end for better site-load times for better user experience.</li>
       </ul>
     `,
-    skills: ['Javascript', 'Node.js', 'React.js', 'Redux', 'Elasticsearch', 'Redis', 'PostgreSQL', 'RabbitMQ', 'SASS', 'Google Cloud Functions', 'Google Cloud Pub/Sub'],
+    skills: [
+      'Javascript',
+      'Node.js',
+      'React.js',
+      'Redux',
+      'Elasticsearch',
+      'Redis',
+      'PostgreSQL',
+      'RabbitMQ',
+      'SASS',
+      'Google Cloud Functions',
+      'Google Cloud Pub/Sub',
+    ],
   },
   {
     id: 3,
@@ -45,7 +70,17 @@ const data = [
          <li>Experience working on worker threads for processing CPU intensive tasks.</li>
       </ul>
     `,
-    skills: ['Javascript', 'Node.js', 'React.js', 'Redux', 'Redis', 'PostgreSQL', 'RabbitMQ', 'SASS', 'Google Cloud Functions'],
+    skills: [
+      'Javascript',
+      'Node.js',
+      'React.js',
+      'Redux',
+      'Redis',
+      'PostgreSQL',
+      'RabbitMQ',
+      'SASS',
+      'Google Cloud Functions',
+    ],
   },
   {
     id: 4,
@@ -61,7 +96,17 @@ const data = [
          <li>Worked on Postmark for sending template-based emails.</li>
       </ul>
     `,
-    skills: ['Javascript', 'Node.js', 'React.js', 'Redux', 'Redis', 'PostgreSQL', 'RabbitMQ', 'SASS', 'Google Cloud Functions'],
+    skills: [
+      'Javascript',
+      'Node.js',
+      'React.js',
+      'Redux',
+      'Redis',
+      'PostgreSQL',
+      'RabbitMQ',
+      'SASS',
+      'Google Cloud Functions',
+    ],
   },
   {
     id: 5,
@@ -91,7 +136,14 @@ const data = [
          <li>Developed an application to feed on the data exposed by SAP OData service. This data was used to create a dashboard, that helped a sales-person to help decide on whether to go ahead with a deal or not.</li>
       </ul>
     `,
-    skills: ['Javascript', 'Java', 'Spring Boot', 'Node.js', 'React.js', 'MobX'],
+    skills: [
+      'Javascript',
+      'Java',
+      'Spring Boot',
+      'Node.js',
+      'React.js',
+      'MobX',
+    ],
   },
   {
     id: 7,
@@ -108,7 +160,7 @@ const data = [
       </ul>
     `,
     skills: [],
-  }
+  },
 ];
 
 export default data;

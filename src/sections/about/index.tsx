@@ -11,16 +11,12 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import ThemeContext from '../../context';
 import Progress from '../../components/progress';
-import ParticlesContainer from "../../components/particles";
-import { ThemeContextType } from '../../interfaces';
+import ParticlesContainer from '../../components/particles';
+import { SectionProps, ThemeContextType } from '../../interfaces';
 
 import './styles.scss';
 
-type HeroType = {
-  id: string
-};
-
-const Hero = ({ id }: HeroType) => {
+const Hero = ({ id }: SectionProps) => {
   const { height } = useContext(ThemeContext) as ThemeContextType;
 
   return (
@@ -35,15 +31,16 @@ const Hero = ({ id }: HeroType) => {
             <h3>I&apos;m a Full Stack web developer working remotely</h3>
             <div className='separator' />
             <p>
-              I am a web developer currently working with PeopleGrove, having more
-              than 4 years of professional experience with a keen eye for
+              I am a web developer currently working with PeopleGrove, having
+              more than 4 years of professional experience with a keen eye for
               design to deliver seamless user experience and best in class
               products.
             </p>
             <p>
-              Apart from work I enjoy making electronic music, and be a DJ whenever I get the chance to.
-              I also enjoy console and PC gaming. I also like to travel a lot (specially to beaches), and
-              that makes Goa my goto destination.
+              Apart from work I enjoy making electronic music, and be a DJ
+              whenever I get the chance to. I also enjoy console and PC gaming.
+              I also like to travel a lot (specially to beaches), and that makes
+              Goa my goto destination.
             </p>
             <div className='social social_icons'>
               <FontAwesomeIcon
@@ -95,8 +92,8 @@ const Hero = ({ id }: HeroType) => {
           </div>
           <div className='line-text'>
             <h6>
-              I know I cannot quantify my skills, but this does look great on
-              a page. Right?!
+              I know I cannot quantify my skills, but this does look great on a
+              page. Right?!
             </h6>
           </div>
           <div className='separator' />
@@ -114,7 +111,7 @@ const Hero = ({ id }: HeroType) => {
         </Col>
       </Row>
     </section>
-  )
+  );
 };
 
 export default Hero;

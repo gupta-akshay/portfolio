@@ -1,12 +1,9 @@
-import React from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import React from 'react';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import { ParticlesProps } from '../../interfaces';
 
-type ParticlesProps = {
-  id: string
-}
-
-const ParticlesContainer = ({ id }: ParticlesProps) =>
+const ParticlesContainer = ({ id }: ParticlesProps) => (
   <Particles
     id={id}
     className='particles'
@@ -29,15 +26,16 @@ const ParticlesContainer = ({ id }: ParticlesProps) =>
         },
         move: {
           speed: 2,
-          direction: "none",
-          enable: true
-        }
+          direction: 'none',
+          enable: true,
+        },
       },
       fullScreen: {
         enable: false,
       },
       retina_detect: true,
     }}
-  />;
+  />
+);
 
 export default ParticlesContainer;

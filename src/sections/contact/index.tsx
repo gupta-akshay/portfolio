@@ -5,24 +5,21 @@ import { Row, Col } from 'react-bootstrap';
 import AnimationContainer from '../../components/animation-container';
 import BaffleText from '../../components/baffle-text';
 import ThemeContext from '../../context';
-import { ThemeContextType } from "../../interfaces";
+import { SectionProps, ThemeContextType } from '../../interfaces';
 
 import './styles.scss';
 
-type ContactType = {
-  id: string
-};
-
 const emailRegex = /\S+@\S+\.\S+/;
-const phoneRegex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
+const phoneRegex =
+  /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
 
-const Contact = ({ id }: ContactType) => {
+const Contact = ({ id }: SectionProps) => {
   const { height } = useContext(ThemeContext) as ThemeContextType;
 
-  const nameRef = useRef<HTMLInputElement>(null)
-  const phoneRef = useRef<HTMLInputElement>(null)
-  const emailRef = useRef<HTMLInputElement>(null)
-  const messageRef = useRef<HTMLTextAreaElement>(null)
+  const nameRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -46,7 +43,10 @@ const Contact = ({ id }: ContactType) => {
       setError(true);
       return;
     }
-    if (!emailRegex.test(email) || (phone.trim().length && !phoneRegex.test(phone))) {
+    if (
+      !emailRegex.test(email) ||
+      (phone.trim().length && !phoneRegex.test(phone))
+    ) {
       setError(true);
       return;
     }
@@ -61,9 +61,9 @@ const Contact = ({ id }: ContactType) => {
     };
 
     try {
-      const response  = await fetch('/api/sendMail', {
+      const response = await fetch('/api/sendMail', {
         method: 'POST',
-        body: JSON.stringify(toSend)
+        body: JSON.stringify(toSend),
       });
 
       if (response.ok) {
@@ -121,7 +121,7 @@ const Contact = ({ id }: ContactType) => {
   };
 
   const isButtonDisabled = () => {
-    return Object.values(errorMap).some(value => value);
+    return Object.values(errorMap).some((value) => value);
   };
 
   const renderForm = () => {
@@ -167,19 +167,23 @@ const Contact = ({ id }: ContactType) => {
                 </AnimationContainer>
                 <AnimationContainer delay={200} animation='fadeInUp fast'>
                   <div className='form-group'>
-                  <textarea
-                    ref={messageRef}
-                    rows={7}
-                    className={`message ${errorMap['message'] ? 'error' : ''}`}
-                    placeholder='Message'
-                    onChange={(e) => handleMessageChange(e.target.value)}
-                  ></textarea>
+                    <textarea
+                      ref={messageRef}
+                      rows={7}
+                      className={`message ${
+                        errorMap['message'] ? 'error' : ''
+                      }`}
+                      placeholder='Message'
+                      onChange={(e) => handleMessageChange(e.target.value)}
+                    ></textarea>
                   </div>
                 </AnimationContainer>
                 <AnimationContainer delay={250} animation='fadeInUp fast'>
                   <div className='submit'>
                     <button
-                      className={`hover-button ${isButtonDisabled() || error ? 'error' : ''}`}
+                      className={`hover-button ${
+                        isButtonDisabled() || error ? 'error' : ''
+                      }`}
                       onClick={() => submit()}
                       disabled={isButtonDisabled() || error}
                     >
@@ -192,7 +196,7 @@ const Contact = ({ id }: ContactType) => {
           </AnimationContainer>
         ) : null}
       </>
-    )
+    );
   };
 
   const renderMap = () => {
@@ -201,7 +205,7 @@ const Contact = ({ id }: ContactType) => {
         {show || height === 'auto' ? (
           <AnimationContainer
             delay={1000}
-            animation="fadeIn fast"
+            animation='fadeIn fast'
             height={height}
           >
             <iframe
@@ -215,7 +219,7 @@ const Contact = ({ id }: ContactType) => {
           </AnimationContainer>
         ) : null}
       </>
-    )
+    );
   };
 
   return (
@@ -240,7 +244,7 @@ const Contact = ({ id }: ContactType) => {
         </Col>
       </Row>
     </section>
-  )
-}
+  );
+};
 
 export default Contact;

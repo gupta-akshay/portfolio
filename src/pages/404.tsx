@@ -18,6 +18,6 @@ const page404 = () => {
       </div>
     </div>
   );
-}
+};
 
 export default page404;

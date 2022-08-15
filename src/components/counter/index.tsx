@@ -1,15 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CountUp from 'react-countup';
-import { useInViewport } from "react-in-viewport";
-
-type CounterProps = {
-  text: string,
-  symbol: string,
-  value: number,
-  icon: any,
-  duration: number
-};
+import { useInViewport } from 'react-in-viewport';
+import { CounterProps } from '../../interfaces';
 
 const Counter = ({ icon, text, value, symbol, duration }: CounterProps) => {
   const counterRef = useRef<HTMLDivElement>(null);
