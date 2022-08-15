@@ -35,21 +35,15 @@ const Hero = ({ id }: HeroType) => {
             <h3>I&apos;m a Full Stack web developer working remotely</h3>
             <div className='separator' />
             <p>
-              I am a developer currently working with PeopleGrove, having more
+              I am a web developer currently working with PeopleGrove, having more
               than 4 years of professional experience with a keen eye for
               design to deliver seamless user experience and best in class
-              products. Enthusiastic about newly evolving technologies with
-              focus on product details.
+              products.
             </p>
             <p>
-              In my free time I like to make electronic music and play video
-              games. Sometimes, when I get a chance then I love to do DJing as
-              well.
-            </p>
-            <p>
-              Also, if you&apos;re wondering where the audio is coming from. Then
-              don&apos;t worry, those are just a few of my singles and bootlegs
-              playing in the background.
+              Apart from work I enjoy making electronic music, and be a DJ whenever I get the chance to.
+              I also enjoy console and PC gaming. I also like to travel a lot (specially to beaches), and
+              that makes Goa my goto destination.
             </p>
             <div className='social social_icons'>
               <FontAwesomeIcon
