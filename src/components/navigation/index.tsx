@@ -30,7 +30,7 @@ const Navigation = ({ change }: NavigationProps) => {
 
   const navScroll = (id: string, v: number) => {
     setShow(false);
-    const el = document.getElementById(id);
+    const el = document.getElementById(id) as HTMLElement;
     scrollToElement(el, {
       offset: 0,
       ease: 'in-out-expo',

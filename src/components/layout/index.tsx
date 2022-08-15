@@ -89,7 +89,9 @@ class Layout extends PureComponent<LayoutProps, LayoutState> {
         if (this.sectionId !== this.sections.length - 1)
           this.sectionId = (this.sectionId + 1) % this.sections.length;
       }
-      const el = document.getElementById(this.sections[this.sectionId]);
+      const el = document.getElementById(
+        this.sections[this.sectionId]
+      ) as HTMLElement;
       scrollToElement(el, {
         offset: 0,
         ease: 'in-out-expo',
