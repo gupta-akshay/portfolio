@@ -1,28 +1,44 @@
-import React from 'react';
-import { ThemeProvider } from '../../context';
-import Navigation from 'components/navigation';
+import React, { PureComponent, WheelEvent } from 'react';
 import ScrollLock from 'react-scrolllock';
+import { ThemeProvider } from '../../context';
+import Navigation from '../navigation';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'scss/index.scss';
+
 const scrollToElement = require('scroll-to-element');
 
-class Layout extends React.Component {
-  constructor(props) {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+type LayoutState = {
+  height: string | number;
+  mobile: boolean;
+  scrollLock: boolean;
+  width: number;
+};
+
+class Layout extends PureComponent<LayoutProps, LayoutState> {
+  private readonly sections: string[];
+  private sectionId: number;
+  private scrolling: boolean;
+  constructor(props: LayoutProps | Readonly<LayoutProps>) {
     super(props);
     this.state = {
       height: 0,
       mobile: false,
-      scrollLock: 0,
+      scrollLock: false,
       width: 0,
     };
     this.sections = ['home', 'about', 'work experience', 'contact'];
-    this.section_id = 0;
+    this.sectionId = 0;
     this.scrolling = false;
-    this.changeSection = this.changeSection.bind(this);
   }
 
   updateDimensions = () => {
-    if (this.state.width !== window.innerWidth) {
+    const { width } = this.state;
+    if (width !== window.innerWidth) {
       window.location.reload();
     }
     this.setState({ height: window.innerHeight, width: window.innerWidth });
@@ -54,35 +70,35 @@ class Layout extends React.Component {
     window.removeEventListener('resize', this.updateDimensions);
   }
 
-  changeSection(id) {
-    this.section_id = id;
-  }
+  changeSection = (id: number) => {
+    this.sectionId = id;
+  };
 
-  wheel(e) {
+  wheel = (e: WheelEvent<HTMLDivElement>) => {
     if (!this.scrolling && !this.state.mobile) {
       this.scrolling = true;
       if (e.deltaY < 0) {
         if (
           this.sections[
-            (this.section_id + this.sections.length - 1) % this.sections.length
+            (this.sectionId + this.sections.length - 1) % this.sections.length
           ] !== this.sections[this.sections.length - 1]
         )
-          this.section_id =
-            (this.section_id + this.sections.length - 1) % this.sections.length;
+          this.sectionId =
+            (this.sectionId + this.sections.length - 1) % this.sections.length;
       } else {
-        if (this.section_id !== this.sections.length - 1)
-          this.section_id = (this.section_id + 1) % this.sections.length;
+        if (this.sectionId !== this.sections.length - 1)
+          this.sectionId = (this.sectionId + 1) % this.sections.length;
       }
-      const el = document.getElementById(this.sections[this.section_id]);
+      const el = document.getElementById(this.sections[this.sectionId]);
       scrollToElement(el, {
         offset: 0,
         ease: 'in-out-expo',
-        duration: 1000,
+        duration: 500,
       }).on('end', () => {
         this.scrolling = false;
       });
     }
-  }
+  };
 
   render() {
     const { children } = this.props;
