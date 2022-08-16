@@ -36,14 +36,9 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts-v2`,
+      resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [
-          {
-            family: 'Poppins',
-            weights: ['300', '900'],
-          },
-        ],
+        fonts: [`Poppins:300,400,400,700,800,900`],
         display: 'swap',
       },
     },
