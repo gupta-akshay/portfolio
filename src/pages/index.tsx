@@ -1,6 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import Helmet from 'react-helmet';
+import { graphql, HeadFC, HeadProps } from 'gatsby';
 import { Toaster } from 'react-hot-toast';
 import Layout from '../components/layout';
 import Spinner from '../components/spinner';
@@ -8,16 +7,11 @@ import Hero from '../sections/hero';
 import About from '../sections/about';
 import Contact from '../sections/contact';
 import Timeline from '../sections/timeline';
-import { HomePageTypes } from '../interfaces/homepage';
+import { HomePageTypes, Data } from '../interfaces/homepage';
 
-const HomePage = (props: HomePageTypes) => {
-  const { site } = props.data;
+const HomePage = (_props: HomePageTypes) => {
   return (
     <div>
-      <Helmet>
-        <title>{site.meta.title}</title>
-        <meta name='description' content={site.meta.description} />
-      </Helmet>
       <Layout>
         <Toaster />
         <Hero id='home' />
@@ -42,3 +36,13 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head: HeadFC<Data> = (props: HeadProps<Data>) => {
+  const { site } = props.data;
+  return (
+    <>
+      <title>{site.meta.title}</title>
+      <meta name='description' content={site.meta.description} />
+    </>
+  );
+};

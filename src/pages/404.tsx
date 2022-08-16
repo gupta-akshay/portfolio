@@ -1,14 +1,10 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import Helmet from 'react-helmet';
+import { HeadFC, Link } from 'gatsby';
 import 'scss/index.scss';
 
 const page404 = () => {
   return (
     <div>
-      <Helmet>
-        <title>Error : 404</title>
-      </Helmet>
       <div className='error-404'>
         <div>
           <h1>404</h1>
@@ -21,3 +17,7 @@ const page404 = () => {
 };
 
 export default page404;
+
+export const Head: HeadFC = () => {
+  return <title>Error : 404</title>;
+};
