@@ -905,7 +905,7 @@ declare namespace Queries {
 
   type ImageFit = 'contain' | 'cover' | 'fill' | 'inside' | 'outside';
 
-  type ImageFormat = '' | 'avif' | 'jpg' | 'png' | 'webp';
+  type ImageFormat = 'avif' | 'jpg' | '' | 'png' | 'webp';
 
   type ImageLayout = 'constrained' | 'fixed' | 'fullWidth';
 
