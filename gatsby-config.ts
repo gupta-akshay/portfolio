@@ -48,6 +48,7 @@ const config: GatsbyConfig = {
         devMode: true,
       },
     },
+    'gatsby-plugin-perf-budgets',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
