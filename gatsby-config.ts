@@ -25,7 +25,6 @@ const config: GatsbyConfig = {
           {
             resolve: 'gatsby-remark-responsive-iframe',
           },
-          'gatsby-remark-copy-linked-files',
         ],
       },
     },
@@ -43,7 +42,12 @@ const config: GatsbyConfig = {
         display: 'swap',
       },
     },
-    'gatsby-plugin-offline',
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+      options: {
+        devMode: true,
+      },
+    },
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

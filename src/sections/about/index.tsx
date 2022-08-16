@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faGithub,
-  faLinkedin,
-  faTwitter,
-  faYoutube,
-  faInstagram,
-  faFacebook,
-} from '@fortawesome/free-brands-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
+
 import ThemeContext from '../../context';
 import Progress from '../../components/progress';
 import ParticlesContainer from '../../components/particles';
