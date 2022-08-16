@@ -37,6 +37,7 @@
     "react-date-picker": "^8.4.0",
     "react-dom": "^18.2.0",
     "react-horizontal-timeline": "^1.5.3",
+    "react-hot-toast": "^2.3.0",
     "react-in-viewport": "^1.0.0-alpha.11",
     "react-scrolllock": "^5.0.1",
     "react-slick": "^0.29.0",

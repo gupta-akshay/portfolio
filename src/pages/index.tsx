@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
+import { Toaster } from 'react-hot-toast';
 import Layout from '../components/layout';
 import Spinner from '../components/spinner';
 import Hero from '../sections/hero';
@@ -18,6 +19,7 @@ const HomePage = (props: HomePageTypes) => {
         <meta name='description' content={site.meta.description} />
       </Helmet>
       <Layout>
+        <Toaster />
         <Hero id='home' />
         <About id='about' />
         <Timeline id='work experience' />

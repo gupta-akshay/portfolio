@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from 'react';
-import { get } from 'lodash';
+import { get, set } from 'lodash';
 import { Row, Col } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 
 import AnimationContainer from '../../components/animation-container';
 import BaffleText from '../../components/baffle-text';
@@ -27,6 +28,7 @@ const Contact = ({ id }: SectionProps) => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
   const [show, setShow] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [errorMap, setErrorMap] = useState({
     name: false,
     email: false,
@@ -36,6 +38,25 @@ const Contact = ({ id }: SectionProps) => {
 
   const enableShow = () => {
     setShow(true);
+  };
+
+  const resetFormState = () => {
+    setError(false);
+    setErrorMap({
+      name: false,
+      email: false,
+      phone: false,
+      message: false,
+    });
+    setIsSending(false);
+    setName('');
+    set(nameRef, 'current.value', '');
+    setEmail('');
+    set(emailRef, 'current.value', '');
+    setPhone('');
+    set(phoneRef, 'current.value', '');
+    setMessage('');
+    set(messageRef, 'current.value', '');
   };
 
   const submit = async () => {
@@ -60,16 +81,33 @@ const Contact = ({ id }: SectionProps) => {
       message: message.trim(),
     };
 
+    setIsSending(true);
     try {
-      const response = await fetch('/api/sendMail', {
-        method: 'POST',
-        body: JSON.stringify(toSend),
-      });
-
-      if (response.ok) {
-        console.log('sent successfully');
-      }
+      await toast.promise(
+        fetch('/api/sendMail', {
+          method: 'POST',
+          body: JSON.stringify(toSend),
+        }),
+        {
+          loading: 'Sending message...',
+          success: () => {
+            resetFormState();
+            setIsSending(false);
+            return 'Message sent successfully!';
+          },
+          error: () => {
+            setIsSending(false);
+            return 'Some error occurred. Please try again!';
+          },
+        },
+        {
+          success: {
+            duration: 3000,
+          },
+        }
+      );
     } catch (e) {
+      setIsSending(false);
       console.log('Error while sending mail ---', e);
     }
   };
@@ -185,7 +223,7 @@ const Contact = ({ id }: SectionProps) => {
                         isButtonDisabled() || error ? 'error' : ''
                       }`}
                       onClick={() => submit()}
-                      disabled={isButtonDisabled() || error}
+                      disabled={isButtonDisabled() || error || isSending}
                     >
                       <span>Send Message</span>
                     </button>
