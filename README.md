@@ -1,3 +1,7 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e5784c89-27b6-4d41-9aec-5d3b79bb27d9/deploy-status)](https://app.netlify.com/sites/silly-bienenstitch-10303b/deploys)
+
+---
+
 # Personal Portfolio Website
 
 Live on https://akshaygupta.live/
