@@ -9,8 +9,8 @@ const data = [
     responsibilities: `
       <ul>
          <li>Mentoring and leading a team of 3 junior developers & close collaboration with product managers and designers.</li>
-         <li>Architect & developed a tool to migrate various legacy customer platforms to PeopleGrove V2 platform. So far, 100+ customer sites have been migrated using this tool.</li>
-         <li>Leading various tech initiatives like, use react-query, expand ElasticSearch usage and implement CDC pipeline.</li>
+         <li>Architect & developed a process to sync data using BigQuery from the primary database to an automated messaging platform used by marketing.</li>
+         <li>Architect & developed a tool to migrate various legacy customer platforms to PeopleGrove V2 platform. So far, 150+ customer sites have been migrated using this tool.</li>
       </ul>
     `,
     skills: [
