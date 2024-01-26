@@ -1,8 +1,13 @@
 import { GatsbyFunctionRequest, GatsbyFunctionResponse } from 'gatsby';
 import { isEmpty, isString } from 'lodash';
+import { Resend } from 'resend';
+import sanitizeHtml from 'sanitize-html';
 
-const sendgrid = require('@sendgrid/mail');
-sendgrid.setApiKey(process.env.SENDGRID_KEY);
+import { replaceMergeFields } from '../apiUtils';
+import userHtmlString from '../apiUtils/userEmailHTML';
+import leadGenHtmlString from '../apiUtils/leadGenHTML';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 type RequestBody = {
   name: string;
@@ -60,55 +65,39 @@ const handler = async (
         return res.status(400).json({ message: 'Not a valid phone number.' });
       }
 
+      // sanitizing values before using
+      const nameToSend = sanitizeHtml(name);
+      const messageToSend = sanitizeHtml(message);
+
       await Promise.all([
         // confirmation email to sender
-        sendgrid.send({
-          from: {
-            email: 'contact@akshaygupta.live',
-            name: 'Akshay Gupta',
-          },
-          personalizations: [
-            {
-              to: [
-                {
-                  email,
-                },
-              ],
-              dynamicTemplateData: {
-                name,
-              },
-            },
-          ],
-          templateId: 'd-75f24f35822147ccb16de30fd8ab3f3c',
+        resend.emails.send({
+          from: 'Akshay Gupta <contact@akshaygupta.live>',
+          to: [email],
+          subject: 'Thank you for contacting! I will reach out to you soon!',
+          html: replaceMergeFields({
+            messageString: userHtmlString,
+            mergeFields: {
+              name: nameToSend,
+            }
+          }),
         }),
         // lead gen email to myself
-        sendgrid.send({
-          from: {
-            email: 'contact@akshaygupta.live',
-            name: 'Contact Enquiry - Akshay Gupta',
-          },
-          personalizations: [
-            {
-              to: [
-                {
-                  email: 'contact@akshaygupta.live',
-                },
-              ],
-              cc: [
-                {
-                  email: 'akshaygupta.live@gmail.com',
-                },
-              ],
-              dynamicTemplateData: {
-                name,
-                email,
-                phone,
-                message,
-              },
-            },
-          ],
-          templateId: 'd-9b520847ee204815ae3f4fbbe973e42c',
-        }),
+        resend.emails.send({
+          from: 'Contact Enquiry - Akshay Gupta <contact@akshaygupta.live>',
+          to: ['contact@akshaygupta.live'],
+          cc: ['akshaygupta.live@gmail.com'],
+          subject: 'New Contact Enquiry',
+          html: replaceMergeFields({
+            messageString: leadGenHtmlString,
+            mergeFields: {
+              name: nameToSend,
+              email,
+              phone,
+              message: messageToSend,
+            }
+          }),
+        })
       ]);
     }
 
