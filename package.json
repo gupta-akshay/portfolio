@@ -5,7 +5,6 @@
   "author": "Akshay Gupta",
   "private": true,
   "dependencies": {
-    "@sendgrid/mail": "^7.7.0",
     "animate.css": "^4.1.1",
     "baffle-react": "0.0.2",
     "gatsby": "^4.20.0",
@@ -31,6 +30,8 @@
     "react-hot-toast": "^2.3.0",
     "react-in-viewport": "^1.0.0-alpha.11",
     "react-tsparticles": "2.2.1",
+    "resend": "^3.1.0",
+    "sanitize-html": "^2.11.0",
     "scroll-to-element": "^2.0.3",
     "tsparticles-preset-links": "^2.2.1",
     "typewriter-effect": "^2.13.0"
