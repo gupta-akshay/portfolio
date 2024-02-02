@@ -15,8 +15,17 @@ import { SectionProps, ThemeContextType } from '../../interfaces';
 
 import './styles.scss';
 
+const calculateExperience = () => {
+  const startDate = new Date('2017-09-13').getTime();
+  const currentDate = new Date().getTime();
+  const diffInMilliseconds = currentDate - startDate;
+  const diffInYears = diffInMilliseconds / (1000 * 60 * 60 * 24 * 365);
+  return Math.floor(diffInYears);
+};
+
 const Hero = ({ id }: SectionProps) => {
   const { height } = useContext(ThemeContext) as ThemeContextType;
+  const yearsOfExperience = calculateExperience();
 
   return (
     <section id={id} className='about' style={{ height }}>
@@ -31,7 +40,7 @@ const Hero = ({ id }: SectionProps) => {
             <div className='separator' />
             <p>
               I am a web developer currently working with PeopleGrove, having
-              more than 4 years of professional experience with a keen eye for
+              more than {yearsOfExperience} years of professional experience with a keen eye for
               design to deliver seamless user experience and best in class
               products.
             </p>
