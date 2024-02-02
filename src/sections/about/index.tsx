@@ -15,8 +15,17 @@ import { SectionProps, ThemeContextType } from '../../interfaces';
 
 import './styles.scss';
 
+const calculateExperience = () => {
+  const startDate = new Date('2017-09-13').getTime();
+  const currentDate = new Date().getTime();
+  const diffInMilliseconds = currentDate - startDate;
+  const diffInYears = diffInMilliseconds / (1000 * 60 * 60 * 24 * 365);
+  return Math.floor(diffInYears);
+};
+
 const Hero = ({ id }: SectionProps) => {
   const { height } = useContext(ThemeContext) as ThemeContextType;
+  const yearsOfExperience = calculateExperience();
 
   return (
     <section id={id} className='about' style={{ height }}>
@@ -27,19 +36,27 @@ const Hero = ({ id }: SectionProps) => {
             <div className='line-text'>
               <h4>About Me</h4>
             </div>
-            <h3>I&apos;m a Full Stack web developer working remotely</h3>
+            <h3>Greetings from the Digital Realm!</h3>
             <div className='separator' />
             <p>
-              I am a web developer currently working with PeopleGrove, having
-              more than 4 years of professional experience with a keen eye for
-              design to deliver seamless user experience and best in class
-              products.
+              I&apos;m a code conjurer and pixel whisperer, otherwise known as a
+              Full Stack Web Developer, crafting digital wonders from the
+              comfort of my abode. Currently weaving web magic with the
+              brilliant minds at PeopleGrove, I boast over {yearsOfExperience}{' '}
+              years of navigating the mystical lands of syntax and semicolons.
+              My quest? To forge seamless user experiences and top-tier digital
+              marvels, all while keeping an eye out for the elusive perfect line
+              of code.
             </p>
             <p>
-              Apart from work I enjoy making electronic music, and be a DJ
-              whenever I get the chance to. I also enjoy console and PC gaming.
-              I also like to travel a lot (specially to beaches), and that makes
-              Goa my goto destination.
+              When not in the throes of development, you can find me
+              orchestrating electronic symphonies or moonlighting as a DJ, where
+              the beats are as dynamic as my code. My love for gaming knows no
+              bounds, be it console wars or the peace of PC realms. And when the
+              screens fade to black, I&apos;m off to sandy shores and salty
+              breezes, with Goa being my sanctuary from the binary world.
+              Because after all, even a web wizard needs a haven to recharge
+              their creative spells.
             </p>
             <div className='social social_icons'>
               <FontAwesomeIcon
@@ -87,12 +104,14 @@ const Hero = ({ id }: SectionProps) => {
         </Col>
         <Col md={6} className='skills'>
           <div className='line-text'>
-            <h4>My Skills</h4>
+            <h4>The Toolbox</h4>
           </div>
           <div className='line-text'>
             <h6>
-              I know I cannot quantify my skills, but this does look great on a
-              page. Right?!
+              Attempting to quantify my skills is like trying to measure the
+              internet with a ruler - ambitious but a tad impractical.
+              Nevertheless, they do make for an impressive display on this
+              digital canvas, don&apos;t you think?
             </h6>
           </div>
           <div className='separator' />

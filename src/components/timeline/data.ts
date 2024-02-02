@@ -8,9 +8,9 @@ const data = [
     location: 'Remote, India',
     responsibilities: `
       <ul>
-         <li>Mentoring and leading a team of 3 junior developers & close collaboration with product managers and designers.</li>
-         <li>Architect & developed a process to sync data using BigQuery from the primary database to an automated messaging platform used by marketing.</li>
-         <li>Architect & developed a tool to migrate various legacy customer platforms to PeopleGrove V2 platform. So far, 150+ customer sites have been migrated using this tool.</li>
+        <li>Mentored a team of three junior developers, enhancing team collaboration and skill levels.</li>
+        <li>Created a data synchronization system with BigQuery, improving data flow to marketing platforms.</li>
+        <li>Developed a migration tool, transitioning 150+ customer sites to the PeopleGrove V2 platform, improving user experience and ensuring service continuity.</li>
       </ul>
     `,
     skills: [
@@ -37,9 +37,9 @@ const data = [
     location: 'Remote, India',
     responsibilities: `
       <ul>
-         <li>Optimized PostgreSQL queries for 20+ million records. Brought response time of multiple APIs from > 4-5s to < 50ms.</li>
-         <li>Managed newsletter service using Google Pub/Sub & SendGrid to send newsletters daily, weekly & monthly. This product is actively used to send more than 500k newsletters monthly.</li>
-         <li>Worked on code-splitting in React front-end for better site-load times for better user experience.</li>
+        <li>Enhanced PostgreSQL query efficiency for over 20 million records, cutting API response times to below 50ms.</li>
+        <li>Administered a robust newsletter service via Google Pub/Sub & SendGrid, reaching over 500k recipients monthly.</li>
+        <li>Optimized React front-end loading times through effective code-splitting, elevating user experience.</li>
       </ul>
     `,
     skills: [
@@ -65,9 +65,9 @@ const data = [
     location: 'Remote, India',
     responsibilities: `
       <ul>
-         <li>Built Cron jobs for scheduled tasks like sending email notifications and data cleaning.</li>
-         <li>Maintained and ported legacy code from Angular.js to React. This increased user engagement on the platform by ~10 times because of better UX (as per our internal Mixpanel funnels).</li>
-         <li>Experience working on worker threads for processing CPU intensive tasks.</li>
+        <li>Developed scheduled Cron jobs for tasks such as email notifications and data maintenance.</li>
+        <li>Transitioned legacy Angular.js code to React, boosting user engagement tenfold through enhanced UX.</li>
+        <li>Gained expertise in utilizing worker threads for efficient CPU-intensive task processing.</li>
       </ul>
     `,
     skills: [
@@ -91,9 +91,9 @@ const data = [
     location: 'Mumbai, India',
     responsibilities: `
       <ul>
-         <li>Architect & developed a tool called 'bulk matching' to pair mentees and mentors for mentorship based on their profile data. One of the highest revenue generating product in the platform.</li>
-         <li>Architect & developed an internal tool called 'launch groups' to make releases behind feature flags easier and scalable. The tool has been used to release more than 20 products so far.</li>
-         <li>Worked on Postmark for sending template-based emails.</li>
+        <li>Designed and built 'Bulk Matching', a key revenue-driving tool that pairs mentees with mentors using profile data.</li>
+        <li>Created 'Launch Groups', an internal tool for scalable feature-flagged releases, successfully used for over 20 products.</li>
+        <li>Utilized Postmark for dispatching template-based emails efficiently.</li>
       </ul>
     `,
     skills: [
@@ -117,8 +117,8 @@ const data = [
     location: 'Hyderabad, India',
     responsibilities: `
       <ul>
-         <li>Developed an application that showed various reports generated in Tableau, PowerBI and SAP BO. The application was SSO enabled using Microsoft Azure.</li>
-         <li>Conducted more than 10 corporate level trainings for React.js.</li>
+        <li>Engineered an application integrating Tableau, PowerBI, and SAP BO reports with SSO capability via Microsoft Azure.</li>
+        <li>Delivered over 10 corporate training sessions on React.js, enhancing development skills across the organization.</li>
       </ul>
     `,
     skills: ['Javascript', 'Node.js', 'React.js', 'MobX'],
@@ -132,8 +132,8 @@ const data = [
     location: 'Hyderabad, India',
     responsibilities: `
       <ul>
-         <li>Received corporate training in Java and Spring Boot.</li>
-         <li>Developed an application to feed on the data exposed by SAP OData service. This data was used to create a dashboard, that helped a sales-person to help decide on whether to go ahead with a deal or not.</li>
+        <li>Acquired expertise through corporate training in Java and Spring Boot.</li>
+        <li>Developed a dashboard application leveraging SAP OData service, aiding sales decisions with real-time data insights.</li>
       </ul>
     `,
     skills: [
@@ -155,11 +155,20 @@ const data = [
     isEducation: true,
     responsibilities: `
       <ul>
-         <li>Graduated with 7.1/10 CGPA.</li>
-         <li>Major Project: Developed an application using AngularJS and Java to check grammar and spellings in text for English language.</li>
+        <li>Achieved a CGPA of 7.1/10 upon graduation.</li>
+        <li>For my major project, I created a tool in AngularJS and Java designed to analyze and correct grammar and spelling in English texts.</li>
       </ul>
     `,
-    skills: [],
+    skills: [
+      'Java',
+      'OOP',
+      'Web Technologies (HTML, CSS, JavaScript)',
+      'Cloud Computing',
+      'Operating Systems',
+      'Networking',
+      'Database Management',
+      'DSA',
+    ],
   },
 ];
 

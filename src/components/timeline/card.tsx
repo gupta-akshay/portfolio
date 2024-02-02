@@ -27,7 +27,7 @@ const Card = ({
         className='experience-card__responsibilities--content'
         dangerouslySetInnerHTML={{ __html: responsibilities }}
       />
-      {!isEducation && skills.length ? (
+      {skills.length ? (
         <>
           <div className='experience-card__divider' />
           <div className='experience-card__responsibilities'>Skills</div>
