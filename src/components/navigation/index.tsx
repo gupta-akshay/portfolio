@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ScrollLock from 'react-scrolllock';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
@@ -50,29 +51,31 @@ const Navigation = ({ change }: NavigationProps) => {
           onClick={() => setShow(true)}
         />
       </div>
-      <div className={`navigation ${show ? 'active' : ''}`}>
-        <FontAwesomeIcon
-          icon={faTimes}
-          className='closeNav'
-          onClick={() => setShow(false)}
-        />
-        <div className='logo'>
-          <div>Akshay Gupta</div>
+      <ScrollLock isActive={show} accountForScrollbars>
+        <div className={`navigation ${show ? 'active' : ''}`}>
+          <FontAwesomeIcon
+            icon={faTimes}
+            className='closeNav'
+            onClick={() => setShow(false)}
+          />
+          <div className='logo'>
+            <div>Akshay Gupta</div>
+          </div>
+          <div className='links'>
+            <ul>
+              {sections.map((value, index) => (
+                <li key={index}>
+                  <button
+                    onClick={() => navScroll(value.name.toLowerCase(), index)}
+                  >
+                    {value.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className='links'>
-          <ul>
-            {sections.map((value, index) => (
-              <li key={index}>
-                <button
-                  onClick={() => navScroll(value.name.toLowerCase(), index)}
-                >
-                  {value.name}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      </ScrollLock>
     </div>
   );
 };
