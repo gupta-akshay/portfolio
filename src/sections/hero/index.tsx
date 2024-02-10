@@ -106,7 +106,7 @@ const Hero = (props: initProps) => (
             }
           }
         }
-        Pdf: allFile(filter: { base: { eq: "akshay-cv.pdf" } }) {
+        Pdf: allFile(filter: { base: { eq: "akshay-resume.pdf" } }) {
           edges {
             node {
               publicURL
