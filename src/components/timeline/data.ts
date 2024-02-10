@@ -1,16 +1,46 @@
 const data = [
   {
+    id: 0,
+    date: '2024-01-01',
+    role: 'Staff Engineer',
+    company: 'PeopleGrove',
+    timeInRole: 'Jan, 2024 - Present',
+    location: 'Remote, India',
+    responsibilities: `
+      <ul>
+        <li>Managing and enhancing the product performance of PeopleGrove's first acquisition, 'Student Opportunity Center'.</li>
+        <li>Leading tech projects aimed at eliminating technical debt across various product codebases, including cloud functions, cron jobs, core API, and micro-services.</li>
+      </ul>
+    `,
+    skills: [
+      'Javascript',
+      'TypeScript',
+      'Node.js',
+      'React.js',
+      'Redux',
+      'Elasticsearch',
+      'Redis',
+      'PostgreSQL',
+      'RabbitMQ',
+      'SASS',
+      'Google Cloud Functions',
+      'Google Cloud Pub/Sub',
+      'Firestore Database',
+      'Firebase Hosting',
+    ],
+  },
+  {
     id: 1,
     date: '2022-04-01',
     role: 'Engineering Manager',
     company: 'PeopleGrove',
-    timeInRole: 'Apr, 2022 - Present',
+    timeInRole: 'Apr, 2022 - Dec, 2023',
     location: 'Remote, India',
     responsibilities: `
       <ul>
-        <li>Mentored a team of three junior developers, enhancing team collaboration and skill levels.</li>
-        <li>Created a data synchronization system with BigQuery, improving data flow to marketing platforms.</li>
-        <li>Developed a migration tool, transitioning 150+ customer sites to the PeopleGrove V2 platform, improving user experience and ensuring service continuity.</li>
+        <li>Mentored and led a team of 3 junior developers & collaborated closely with product managers and designers.</li>
+        <li>Designed and implemented a data synchronization process using BigQuery to transfer data from the primary database to the customer engagement platform (Customer.io) for marketing use.</li>
+        <li>Designed and built a migration tool for transitioning legacy customer platforms to the PeopleGrove V2 platform, successfully migrating over 200 customer sites to date.</li>
       </ul>
     `,
     skills: [
@@ -37,7 +67,7 @@ const data = [
     location: 'Remote, India',
     responsibilities: `
       <ul>
-        <li>Enhanced PostgreSQL query efficiency for over 20 million records, cutting API response times to below 50ms.</li>
+        <li>Optimized PostgreSQL queries for a 20+ million record dataset, cutting API response times from 4-5 seconds to under 50 milliseconds.</li>
         <li>Administered a robust newsletter service via Google Pub/Sub & SendGrid, reaching over 500k recipients monthly.</li>
         <li>Optimized React front-end loading times through effective code-splitting, elevating user experience.</li>
       </ul>
